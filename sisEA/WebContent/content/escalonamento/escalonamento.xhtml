@@ -94,6 +94,22 @@
 					</p:dialog>
 				</p:column>
 			</p:panelGrid>
+			
+			<p:commandButton id="btnEscalonar" value="#{msgs.btn_realizar_escalonamento}" action="#{escalonamentoBean.realizarEscalonamento}" update=":formbla:tabelaAtividadesEscalonadas"/>
+			
+			<p:dataTable id="tabelaAtividadesEscalonadas" var="item"
+						selectionMode="single" rowKey="#{item.idTarefa}"
+						value="#{escalonamentoBean.atividadeEscalonada}">
+						<f:facet name="header">
+							<h:outputText value="#{msgs.lbl_atividade_funcionario}"></h:outputText>
+						</f:facet>
+						<p:column headerText="#{msgs.lbl_atividade}">
+							<h:outputText value="#{item.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_funcionario}">
+							<h:outputText value="#{item.funcionario.nome}"></h:outputText>
+						</p:column>
+					</p:dataTable>
 
 		</h:form>
 

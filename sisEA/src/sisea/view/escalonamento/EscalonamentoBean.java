@@ -5,6 +5,7 @@ import java.util.List;
 
 import sisea.model.Atividade;
 import sisea.model.Funcionario;
+import sisea.model.Habilidade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.funcionario.FuncionarioService;
 
@@ -16,6 +17,8 @@ public class EscalonamentoBean {
 	private List<Atividade> atividades;
 	private Funcionario funcionarioSelecionado;
 	private Atividade atividadeSelecionada;
+	private List<Atividade> atividadeEscalonada;
+
 	
 	public String iniciarPagina(){
 		inicializar();
@@ -33,11 +36,37 @@ public class EscalonamentoBean {
 		setAtividades(getAtividadeService().listarAtividades());
 	}
 	
+	public void realizarEscalonamento(){
+		
+		for(Atividade atividade : getAtividades()){
+			int numeroHabilidadesCompativeis = 0;
+			List<Habilidade> habilidadesNecessarias = atividade.getHabilidades();
+			
+			for(Funcionario funcionario : getFuncionarios()){
+				List<Habilidade> habilidadesFuncionario = funcionario.getHabilidades();
+				
+				for(int i = 0; i < habilidadesNecessarias.size(); i++){
+					for(int j = 0; j < habilidadesFuncionario.size(); j++){
+						if(habilidadesNecessarias.get(i).getIdHabilidade() == habilidadesFuncionario.get(j).getIdHabilidade()){
+							numeroHabilidadesCompativeis++;
+						}
+					}
+				}
+				if(numeroHabilidadesCompativeis == habilidadesNecessarias.size()){
+					funcionario.setTarefa(atividade);
+					atividade.setFuncionario(funcionario);
+					getAtividadeEscalonada().add(atividade);
+				}
+			}
+		}
+	}
+	
 	public void inicializar(){
 		funcionarioService = new FuncionarioService();
 		atividadeService = new AtividadeService();
 		funcionarios = new ArrayList<Funcionario>();
 		atividades = new ArrayList<Atividade>();
+		atividadeEscalonada = new ArrayList<Atividade>();
 	}
 
 
@@ -94,6 +123,16 @@ public class EscalonamentoBean {
 
 	public void setAtividadeSelecionada(Atividade atividadeSelecionada) {
 		this.atividadeSelecionada = atividadeSelecionada;
+	}
+
+
+	public List<Atividade> getAtividadeEscalonada() {
+		return atividadeEscalonada;
+	}
+
+
+	public void setAtividadeEscalonada(List<Atividade> atividadeEscalonada) {
+		this.atividadeEscalonada = atividadeEscalonada;
 	}
 	
 	
