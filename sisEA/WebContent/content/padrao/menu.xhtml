@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form id="menuForm">
+		<p:growl id="messages" />
+		<p:menubar autoDisplay="false">
+			<p:menuitem value="#{msgs.menu_home}" icon="ui-icon-home" action="/index.xhtml" ajax="false"/>
+			
+			<p:submenu label="#{msgs.menu_cadastramento}" icon="ui-icon-document">
+				<p:menuitem value="#{msgs.submenu_tarefas}" action="#" ajax="false"/>
+				<p:menuitem value="#{msgs.submenu_funcionarios}" url="#" ajax="false" />
+				<p:menuitem value="#{msgs.submenu_habilidades}" url="#" ajax="false"/>
+				<p:menuitem value="#{msgs.submenu_projetos}" action="#" ajax="false" />
+			</p:submenu>
+			<p:menuitem value="#{msgs.menu_escalonamento}" icon="ui-icon-gear" action="#{escalonamentoBean.iniciarPagina}" ajax="false" />
+		</p:menubar>
+	</h:form>
+
+</ui:composition>

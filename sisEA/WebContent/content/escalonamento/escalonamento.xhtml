@@ -1,0 +1,101 @@
+<ui:composition template="/content/templates/template.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<h:form id="formbla">
+
+			<p:panelGrid columns="2" style="width:100%">
+				<p:column width="1000px">
+
+					<p:dataTable id="tabelaFuncionarios" var="item"
+						selection="#{escalonamentoBean.funcionarioSelecionado}"
+						selectionMode="single" rowKey="#{item.idFuncionario}"
+						value="#{escalonamentoBean.funcionarios}">
+						<f:facet name="header">
+							<h:outputText value="#{msgs.lbl_funcionarios}"></h:outputText>
+						</f:facet>
+						<p:column headerText="#{msgs.lbl_nome}">
+							<h:outputText value="#{item.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_sobrenome}">
+							<h:outputText value="#{item.sobrenome}"></h:outputText>
+						</p:column>
+						<f:facet name="footer">
+							<p:commandButton id="viewButton" value="View"
+								icon="ui-icon-search" update=":formbla:funcionario"
+								oncomplete="funcionarioDialog.show()" />
+						</f:facet>
+					</p:dataTable>
+
+					<p:dialog id="funcionarioDialog" header="#{msgs.lbl_detalhes}"
+						widgetVar="funcionarioDialog" resizable="false" width="500"
+						showEffect="clip" hideEffect="fold">
+
+						<h:panelGrid id="funcionario" columns="2" cellpadding="4">
+
+							<h:outputText value="#{msgs.lbl_nome}:" />
+							<h:outputText
+								value="#{escalonamentoBean.funcionarioSelecionado.nome}" />
+
+							<h:outputText value="#{msgs.lbl_sobrenome}:" />
+							<h:outputText
+								value="#{escalonamentoBean.funcionarioSelecionado.sobrenome}" />
+
+							<p:dataTable id="tabelaHabilidadesFuncionario" var="item"
+								value="#{escalonamentoBean.funcionarioSelecionado.habilidades}">
+								<p:column headerText="#{msgs.lbl_habilidades}">
+									<h:outputText value="#{item.descricao}"></h:outputText>
+								</p:column>
+							</p:dataTable>
+						</h:panelGrid>
+					</p:dialog>
+
+				</p:column>
+				<p:column >
+					<p:dataTable id="tabelaAtividades" var="item"
+						selection="#{escalonamentoBean.atividadeSelecionada}"
+						selectionMode="single" rowKey="#{item.idTarefa}"
+						value="#{escalonamentoBean.atividades}">
+						<f:facet name="header">
+							<h:outputText value="#{msgs.lbl_atividades}"></h:outputText>
+						</f:facet>
+						<p:column headerText="#{msgs.lbl_nome}">
+							<h:outputText value="#{item.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_descricao}">
+							<h:outputText value="#{item.descricao}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_prioridade}">
+							<h:outputText value="#{item.prioridade}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_status}">
+							<h:outputText value="#{item.status}"></h:outputText>
+						</p:column>
+						<f:facet name="footer">
+							<p:commandButton id="viewButton" value="View"
+								icon="ui-icon-search" update=":formbla:atividade"
+								oncomplete="atividadeDialog.show()" />
+						</f:facet>
+					</p:dataTable>
+					<p:dialog id="atividadeDialog" header="#{msgs.lbl_detalhes}"
+						widgetVar="atividadeDialog" resizable="false" width="500"
+						showEffect="clip" hideEffect="fold">
+						<h:panelGrid id="atividade" columns="2" cellpadding="4">
+							<p:dataTable id="tabelaHabilidadesAtividade" var="item"
+								value="#{escalonamentoBean.atividadeSelecionada.habilidades}">
+								<p:column headerText="#{msgs.lbl_habilidades}">
+									<h:outputText value="#{item.descricao}"></h:outputText>
+								</p:column>
+							</p:dataTable>
+						</h:panelGrid>
+					</p:dialog>
+				</p:column>
+			</p:panelGrid>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

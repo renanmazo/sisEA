@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>sisEA</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<h:outputStylesheet library="assets/css" name="principal.css"></h:outputStylesheet>  
+</h:head>
+<h:body>
+	<div class="main">
+		<div class="header">
+			<ui:include src="/content/padrao/header.xhtml" />
+		</div>
+
+		<div class="menu">
+			<ui:include src="/content/padrao/menu.xhtml" />
+		</div>
+
+		<div class="content">
+			<ui:insert name="corpo"/>
+		</div>
+
+		<div class="footer">
+			<ui:include src="/content/padrao/footer.xhtml" />
+		</div>
+	</div>
+</h:body>
+</html>

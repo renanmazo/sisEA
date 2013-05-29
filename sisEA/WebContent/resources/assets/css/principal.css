@@ -1,0 +1,25 @@
+*{
+	font-size: 12px;	
+}
+.content, .menu, .header, .footer{
+	width: 100%;
+	min-width: 500px;
+}
+
+.main{
+	width: 1024px;
+	margin: 0 auto;	
+}
+
+.header{
+	 height: 100px;
+}
+.header .logo{
+	
+}
+.footer{
+	
+}
+.footer .copy{
+	
+}
