@@ -1,5 +1,6 @@
 *{
-	font-size: 12px;	
+	font-size: 12px;
+	font-family: Helvetica,Arial,sans-serif;	
 }
 .content, .menu, .header, .footer{
 	width: 100%;
