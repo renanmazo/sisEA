@@ -1,0 +1,51 @@
+<ui:composition template="/content/templates/template.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+
+		<h:form id="atividadeForm">
+
+			<h:panelGrid styleClass="gridPrincipal">
+				<h:panelGrid columns="2" width="100%">
+					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
+						<h:panelGroup>
+							<p:outputLabel value="Nome: " />
+							<p:inputText value="" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<p:outputLabel value="Prioridade: "/>
+							<p:selectOneMenu value="#{atividadeBean.prioridadeSelecionada}">
+								<f:selectItems value="#{atividadeBean.comboPrioridade}" />
+							</p:selectOneMenu>
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid styleClass="gridBotaoDireita">
+						<h:panelGroup>
+							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}"
+								update="atividadeForm" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</h:panelGrid>
+
+
+				<p:separator id="separator" />
+
+				<h:panelGrid styleClass="gridBotao" columns="1">
+					<h:panelGrid styleClass="gridBotaoDireita">
+						<h:panelGroup>
+							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}"
+								update="atividadeForm" />
+							<p:commandButton id="btnAlterar" value="#{msgs.btn_alterar}"
+								update="atividadeForm" />
+							<p:commandButton id="btnExcluir" value="#{msgs.btn_excluir}"
+								update="atividadeForm" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</h:panelGrid>
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
