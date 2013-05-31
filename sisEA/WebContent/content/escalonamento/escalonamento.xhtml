@@ -11,10 +11,9 @@
 
 				<h:panelGrid columns="2" width="100%">
 					<h:panelGroup>
-						<p:dataTable id="tabelaAtividades" var="item"
-							selection="#{escalonamentoBean.atividadeSelecionada}"
-							selectionMode="single" rowKey="#{item.idAtividade}"
-							value="#{escalonamentoBean.atividadesNovas}">
+						<p:dataTable id="tabelaAtividades" var="item" selection="#{escalonamentoBean.atividadeSelecionada}"
+							selectionMode="single" rowKey="#{item.idAtividade}" value="#{escalonamentoBean.atividadesNovas}"
+							paginator="true" rows="10" paginatorPosition="bottom" paginatorAlwaysVisible="false">
 							<f:facet name="header">
 								<h:outputText value="#{msgs.lbl_atividades_novas}"></h:outputText>
 							</f:facet>
@@ -65,10 +64,9 @@
 					</h:panelGroup>
 
 					<h:panelGroup>
-						<p:dataTable id="tabelaFuncionarios" var="item"
-							selection="#{escalonamentoBean.funcionarioSelecionado}"
-							selectionMode="single" rowKey="#{item.idFuncionario}"
-							value="#{escalonamentoBean.funcionariosLivres}">
+						<p:dataTable id="tabelaFuncionarios" var="item" selection="#{escalonamentoBean.funcionarioSelecionado}"
+							selectionMode="single" rowKey="#{item.idFuncionario}" value="#{escalonamentoBean.funcionariosLivres}"
+							paginator="true" rows="10" paginatorPosition="bottom" paginatorAlwaysVisible="false">
 							<f:facet name="header">
 								<h:outputText value="#{msgs.lbl_funcionarios_livres}"></h:outputText>
 							</f:facet>
@@ -122,7 +120,7 @@
 				<h:panelGrid columns="1" width="100%" id="atividadeEscalonada"
 					rendered="#{not empty escalonamentoBean.atividadeEscalonada}">
 					<p:dataTable id="tabelaAtividadesEscalonadas" var="item"
-						emptyMessage="Nenhum registro" selectionMode="single"
+						emptyMessage="#{msgs.lbl_nenhum_registro}" selectionMode="single"
 						rowKey="#{item.idAtividade}"
 						value="#{escalonamentoBean.atividadeEscalonada}">
 						<f:facet name="header">

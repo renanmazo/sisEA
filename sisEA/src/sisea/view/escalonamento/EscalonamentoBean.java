@@ -15,8 +15,6 @@ public class EscalonamentoBean {
 	
 	private FuncionarioService funcionarioService = new FuncionarioService();
 	private AtividadeService atividadeService = new AtividadeService();
-	private ComparatorAtividadePorPrioridade comparatorAtividadePorPrioridade = new ComparatorAtividadePorPrioridade(); 
-	private ComparatorFuncionarioPorNumeroHabilidades comparatorFuncionarioPorNumeroHabilidades = new ComparatorFuncionarioPorNumeroHabilidades(); 
 	
 	private List<Funcionario> funcionariosLivres;
 	private List<Atividade> atividadesNovas;
@@ -82,9 +80,9 @@ public class EscalonamentoBean {
 	
 	public void carregarListasOrdenadas(){
 		atividadesOrdenadas = getAtividadeService().listarAtividadesNovas();
-		atividadesOrdenadas = comparatorAtividadePorPrioridade.ordenaPorPrioridade(atividadesOrdenadas);
+		atividadesOrdenadas = ComparatorAtividadePorPrioridade.ordenaPorPrioridade(atividadesOrdenadas);
 		funcionariosOrdenados = getFuncionarioService().buscarFuncionarioLivre();
-		comparatorFuncionarioPorNumeroHabilidades.ordenaPorNumeroHabilidades(funcionariosOrdenados);
+		funcionariosOrdenados = ComparatorFuncionarioPorNumeroHabilidades.ordenaPorNumeroHabilidades(funcionariosOrdenados);
 	}
 
 	public FuncionarioService getFuncionarioService() {

@@ -8,7 +8,8 @@ public class Atividade {
 	private String nome;
 	private String descricao;
 	private String status;
-	private int prioridade;
+	private int idPrioridade;
+	private String prioridade;
 	private Funcionario funcionario;
 	private Projeto projeto;
 	private List<Habilidade> habilidades;
@@ -37,12 +38,6 @@ public class Atividade {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getPrioridade() {
-		return prioridade;
-	}
-	public void setPrioridade(int prioridade) {
-		this.prioridade = prioridade;
-	}
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
@@ -60,5 +55,17 @@ public class Atividade {
 	}
 	public void setHabilidades(List<Habilidade> habilidades) {
 		this.habilidades = habilidades;
+	}
+	public int getIdPrioridade() {
+		return idPrioridade;
+	}
+	public void setIdPrioridade(int idPrioridade) {
+		this.idPrioridade = idPrioridade;
+	}
+	public String getPrioridade() {
+		return prioridade;
+	}
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
 	}
 }

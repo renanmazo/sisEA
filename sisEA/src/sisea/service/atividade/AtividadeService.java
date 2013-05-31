@@ -11,6 +11,7 @@ import sisea.model.Projeto;
 import sisea.model.Atividade;
 import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
+import sisea.util.SiteUtil;
 
 public class AtividadeService {
 	
@@ -34,7 +35,8 @@ public class AtividadeService {
 				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
-				atividade.setPrioridade(rs.getInt("prioridade"));
+				atividade.setIdPrioridade(rs.getInt("prioridade"));
+				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
 				atividade.setStatus(rs.getString("status"));
 				projeto.setIdProjeto(rs.getInt("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
@@ -72,7 +74,8 @@ public class AtividadeService {
 				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
-				atividade.setPrioridade(rs.getInt("prioridade"));
+				atividade.setIdPrioridade(rs.getInt("prioridade"));
+				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
 				atividade.setStatus(rs.getString("status"));
 				projeto.setIdProjeto(rs.getInt("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
