@@ -68,7 +68,7 @@ public class FuncionarioService {
 	}
 
 	public List<Funcionario> buscarFuncionarioHabilidadeLivre() {
-		String query = "SELECT f.idFuncionario, f.nome, f.sobrenome, h.idHabilidade, h.descricao FROM tb_funcionario f, "
+		String query = "SELECT f.idFuncionario, f.nome, f.sobrenome, f.status, h.idHabilidade, h.descricao FROM tb_funcionario f, "
 				+ "tb_habilidade h, rel_funcionariohabilidade r WHERE f.idFuncionario = r.idFuncionario AND "
 				+ "h.idHabilidade = r.idHabilidade AND status = 'LIVRE' ORDER BY f.idFuncionario";
 		PreparedStatement ps = null;
@@ -85,6 +85,7 @@ public class FuncionarioService {
 					funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
 					funcionario.setNome(rs.getString("nome"));
 					funcionario.setSobrenome(rs.getString("sobrenome"));
+					funcionario.setStatus(rs.getString("status"));
 					habilidade.setIdHabilidade(rs.getInt("idHabilidade"));
 					habilidade.setDescricao(rs.getString("descricao"));
 					funcionario.getHabilidades().add(habilidade);
@@ -96,6 +97,7 @@ public class FuncionarioService {
 								.setIdFuncionario(rs.getInt("idFuncionario"));
 						funcionario.setNome(rs.getString("nome"));
 						funcionario.setSobrenome(rs.getString("sobrenome"));
+						funcionario.setStatus(rs.getString("status"));
 						habilidade.setIdHabilidade(rs.getInt("idHabilidade"));
 						habilidade.setDescricao(rs.getString("descricao"));
 						funcionario.getHabilidades().add(habilidade);

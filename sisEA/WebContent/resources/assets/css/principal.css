@@ -24,3 +24,21 @@
 .footer .copy{
 	
 }
+
+.gridPrincipal{
+	margin-top: 10px;
+	width: 100%;
+
+}
+
+.gridBotao{
+	width: 100%;
+}
+
+.gridBotaoEsquerda{
+	float: left;
+}
+
+.gridBotaoDireita{
+	float: right;
+}

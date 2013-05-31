@@ -60,5 +60,4 @@ public class Atividade {
 	public void setHabilidades(List<Habilidade> habilidades) {
 		this.habilidades = habilidades;
 	}
-
 }

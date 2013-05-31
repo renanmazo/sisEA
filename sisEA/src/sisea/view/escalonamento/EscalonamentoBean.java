@@ -8,41 +8,51 @@ import sisea.model.Funcionario;
 import sisea.model.Habilidade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.funcionario.FuncionarioService;
+import sisea.util.ComparatorAtividadePorPrioridade;
 
 public class EscalonamentoBean {
 	
-	private FuncionarioService funcionarioService;
-	private AtividadeService atividadeService;
-	private List<Funcionario> funcionarios;
-	private List<Atividade> atividades;
+	private FuncionarioService funcionarioService = new FuncionarioService();
+	private AtividadeService atividadeService = new AtividadeService();
+	private ComparatorAtividadePorPrioridade comparatorAtividadePorPrioridade = new ComparatorAtividadePorPrioridade(); 
+	
+	private List<Funcionario> funcionariosLivres;
+	private List<Atividade> atividadesNovas;
 	private Funcionario funcionarioSelecionado;
 	private Atividade atividadeSelecionada;
 	private List<Atividade> atividadeEscalonada;
-
 	
 	public String iniciarPagina(){
 		inicializar();
 		carregaListaFuncionarioLivre();
-		carregaListaAtividades();
+		carregaListaAtividadesNovas();
 		return "IR_PARA_ESCALONAMENTO";
+	}
+	
+	public void inicializar(){
+		funcionariosLivres = new ArrayList<Funcionario>();
+		atividadesNovas = new ArrayList<Atividade>();
+		atividadeEscalonada = new ArrayList<Atividade>();
+		setFuncionarioSelecionado(new Funcionario());
+		setAtividadeSelecionada(new Atividade());
 	}
 	
 	
 	public void carregaListaFuncionarioLivre(){
-		setFuncionarios(getFuncionarioService().buscarFuncionarioHabilidadeLivre());
+		setFuncionariosLivres(getFuncionarioService().buscarFuncionarioHabilidadeLivre());
 	}
 	
-	public void carregaListaAtividades(){
-		setAtividades(getAtividadeService().listarAtividades());
+	public void carregaListaAtividadesNovas(){
+		setAtividadesNovas(getAtividadeService().listarAtividadesNovas());
 	}
 	
 	public void realizarEscalonamento(){
 		
-		for(Atividade atividade : getAtividades()){
+		for(Atividade atividade : comparatorAtividadePorPrioridade.ordenaPorPrioridade(getAtividadesNovas())){
 			int numeroHabilidadesCompativeis = 0;
 			List<Habilidade> habilidadesNecessarias = atividade.getHabilidades();
 			
-			for(Funcionario funcionario : getFuncionarios()){
+			for(Funcionario funcionario : getFuncionariosLivres()){
 				List<Habilidade> habilidadesFuncionario = funcionario.getHabilidades();
 				
 				for(int i = 0; i < habilidadesNecessarias.size(); i++){
@@ -53,22 +63,16 @@ public class EscalonamentoBean {
 					}
 				}
 				if(numeroHabilidadesCompativeis == habilidadesNecessarias.size()){
-					funcionario.setTarefa(atividade);
-					atividade.setFuncionario(funcionario);
-					getAtividadeEscalonada().add(atividade);
+					if(funcionario.getStatus() != "ALOCADO"){
+						funcionario.setTarefa(atividade);
+						funcionario.setStatus("ALOCADO");
+						atividade.setFuncionario(funcionario);
+						getAtividadeEscalonada().add(atividade);	
+					}
 				}
 			}
 		}
 	}
-	
-	public void inicializar(){
-		funcionarioService = new FuncionarioService();
-		atividadeService = new AtividadeService();
-		funcionarios = new ArrayList<Funcionario>();
-		atividades = new ArrayList<Atividade>();
-		atividadeEscalonada = new ArrayList<Atividade>();
-	}
-
 
 	public FuncionarioService getFuncionarioService() {
 		return funcionarioService;
@@ -78,63 +82,53 @@ public class EscalonamentoBean {
 		this.funcionarioService = funcionarioService;
 	}
 
-	public List<Funcionario> getFuncionarios() {
-		return funcionarios;
+	public AtividadeService getAtividadeService() {
+		return atividadeService;
 	}
 
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
+	public void setAtividadeService(AtividadeService atividadeService) {
+		this.atividadeService = atividadeService;
+	}
+
+	public List<Funcionario> getFuncionariosLivres() {
+		return funcionariosLivres;
+	}
+
+	public void setFuncionariosLivres(List<Funcionario> funcionariosLivres) {
+		this.funcionariosLivres = funcionariosLivres;
+	}
+
+	public List<Atividade> getAtividadesNovas() {
+		return atividadesNovas;
+	}
+
+	public void setAtividadesNovas(List<Atividade> atividadesNovas) {
+		this.atividadesNovas = atividadesNovas;
 	}
 
 	public Funcionario getFuncionarioSelecionado() {
 		return funcionarioSelecionado;
 	}
 
-
 	public void setFuncionarioSelecionado(Funcionario funcionarioSelecionado) {
 		this.funcionarioSelecionado = funcionarioSelecionado;
 	}
-
-
-	public AtividadeService getAtividadeService() {
-		return atividadeService;
-	}
-
-
-	public void setAtividadeService(AtividadeService atividadeService) {
-		this.atividadeService = atividadeService;
-	}
-
-
-	public List<Atividade> getAtividades() {
-		return atividades;
-	}
-
-
-	public void setAtividades(List<Atividade> atividades) {
-		this.atividades = atividades;
-	}
-
 
 	public Atividade getAtividadeSelecionada() {
 		return atividadeSelecionada;
 	}
 
-
 	public void setAtividadeSelecionada(Atividade atividadeSelecionada) {
 		this.atividadeSelecionada = atividadeSelecionada;
 	}
-
 
 	public List<Atividade> getAtividadeEscalonada() {
 		return atividadeEscalonada;
 	}
 
-
 	public void setAtividadeEscalonada(List<Atividade> atividadeEscalonada) {
 		this.atividadeEscalonada = atividadeEscalonada;
 	}
-	
 	
 
 }
