@@ -43,7 +43,7 @@ public class HabilidadeService {
 	public List<Habilidade> listarHabilidadesFuncionario(int idFuncionario){
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String query = "SELECT * FROM rel_funcionariohabilidade a JOIN tb_funcionario b ON a.idHabilidade = b.idHabilidade WHERE idFuncionario = ?";
+		String query = "SELECT * FROM rel_funcionariohabilidade a JOIN tb_habilidade b ON a.idHabilidade = b.idHabilidade WHERE idFuncionario = ?";
 		List<Habilidade> listaRetorno = new ArrayList<Habilidade>();
 		try {
 			conexao = new Conexao().getConexao();

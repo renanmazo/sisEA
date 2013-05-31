@@ -43,3 +43,7 @@
 .gridBotaoDireita{
 	float: right;
 }
+
+.outputLabelBold{
+	font-style: bold;
+}

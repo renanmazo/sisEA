@@ -9,18 +9,23 @@ import sisea.model.Habilidade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.funcionario.FuncionarioService;
 import sisea.util.ComparatorAtividadePorPrioridade;
+import sisea.util.ComparatorFuncionarioPorNumeroHabilidades;
 
 public class EscalonamentoBean {
 	
 	private FuncionarioService funcionarioService = new FuncionarioService();
 	private AtividadeService atividadeService = new AtividadeService();
 	private ComparatorAtividadePorPrioridade comparatorAtividadePorPrioridade = new ComparatorAtividadePorPrioridade(); 
+	private ComparatorFuncionarioPorNumeroHabilidades comparatorFuncionarioPorNumeroHabilidades = new ComparatorFuncionarioPorNumeroHabilidades(); 
 	
 	private List<Funcionario> funcionariosLivres;
 	private List<Atividade> atividadesNovas;
 	private Funcionario funcionarioSelecionado;
 	private Atividade atividadeSelecionada;
 	private List<Atividade> atividadeEscalonada;
+	
+	List<Atividade> atividadesOrdenadas = new ArrayList<Atividade>();
+	List<Funcionario> funcionariosOrdenados = new ArrayList<Funcionario>();
 	
 	public String iniciarPagina(){
 		inicializar();
@@ -39,7 +44,7 @@ public class EscalonamentoBean {
 	
 	
 	public void carregaListaFuncionarioLivre(){
-		setFuncionariosLivres(getFuncionarioService().buscarFuncionarioHabilidadeLivre());
+		setFuncionariosLivres(getFuncionarioService().buscarFuncionarioLivre());
 	}
 	
 	public void carregaListaAtividadesNovas(){
@@ -47,12 +52,13 @@ public class EscalonamentoBean {
 	}
 	
 	public void realizarEscalonamento(){
-		
-		for(Atividade atividade : comparatorAtividadePorPrioridade.ordenaPorPrioridade(getAtividadesNovas())){
+		carregarListasOrdenadas();
+
+		for(Atividade atividade : atividadesOrdenadas){
 			int numeroHabilidadesCompativeis = 0;
 			List<Habilidade> habilidadesNecessarias = atividade.getHabilidades();
 			
-			for(Funcionario funcionario : getFuncionariosLivres()){
+			for(Funcionario funcionario : funcionariosOrdenados){
 				List<Habilidade> habilidadesFuncionario = funcionario.getHabilidades();
 				
 				for(int i = 0; i < habilidadesNecessarias.size(); i++){
@@ -72,6 +78,13 @@ public class EscalonamentoBean {
 				}
 			}
 		}
+	}
+	
+	public void carregarListasOrdenadas(){
+		atividadesOrdenadas = getAtividadeService().listarAtividadesNovas();
+		atividadesOrdenadas = comparatorAtividadePorPrioridade.ordenaPorPrioridade(atividadesOrdenadas);
+		funcionariosOrdenados = getFuncionarioService().buscarFuncionarioLivre();
+		comparatorFuncionarioPorNumeroHabilidades.ordenaPorNumeroHabilidades(funcionariosOrdenados);
 	}
 
 	public FuncionarioService getFuncionarioService() {
@@ -129,6 +142,5 @@ public class EscalonamentoBean {
 	public void setAtividadeEscalonada(List<Atividade> atividadeEscalonada) {
 		this.atividadeEscalonada = atividadeEscalonada;
 	}
-	
 
 }

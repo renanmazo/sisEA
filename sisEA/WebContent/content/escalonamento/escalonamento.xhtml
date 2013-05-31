@@ -36,8 +36,24 @@
 
 						<p:dialog id="atividadeDialog" header="#{msgs.lbl_detalhes}"
 							widgetVar="atividadeDialog" resizable="false" width="500"
-							showEffect="clip" hideEffect="fold">
-							<h:panelGrid id="atividade" columns="2" cellpadding="4">
+							modal="true" showEffect="clip" hideEffect="fold">
+							<h:panelGrid id="atividade" columns="2">
+								<h:panelGroup>
+									<p:outputLabel value="#{msgs.lbl_nome}: " />
+									<h:outputLabel styleClass="outputLabelBold"
+										value="#{escalonamentoBean.atividadeSelecionada.nome}" />
+								</h:panelGroup>
+								<h:panelGroup>
+									<p:outputLabel value="#{msgs.lbl_descricao}: " />
+									<p:outputLabel
+										value="#{escalonamentoBean.atividadeSelecionada.descricao}" />
+								</h:panelGroup>
+								<h:panelGroup>
+								<p:outputLabel value="#{msgs.lbl_projeto}: " />
+								<p:outputLabel
+									value="#{escalonamentoBean.atividadeSelecionada.projeto.nome}" />
+								</h:panelGroup>
+								
 								<p:dataTable id="tabelaHabilidadesAtividade" var="item"
 									value="#{escalonamentoBean.atividadeSelecionada.habilidades}">
 									<p:column headerText="#{msgs.lbl_habilidades}">
@@ -71,7 +87,7 @@
 
 						<p:dialog id="funcionarioDialog" header="#{msgs.lbl_detalhes}"
 							widgetVar="funcionarioDialog" resizable="false" width="500"
-							showEffect="clip" hideEffect="fold">
+							showEffect="clip" hideEffect="fold" modal="true">
 							<h:panelGrid id="funcionario" columns="2" cellpadding="4">
 								<h:outputText value="#{msgs.lbl_nome}:" />
 								<h:outputText
@@ -103,7 +119,7 @@
 					</h:panelGrid>
 				</h:panelGrid>
 
-				<h:panelGrid columns="1" width="100%"
+				<h:panelGrid columns="1" width="100%" id="atividadeEscalonada"
 					rendered="#{not empty escalonamentoBean.atividadeEscalonada}">
 					<p:dataTable id="tabelaAtividadesEscalonadas" var="item"
 						emptyMessage="Nenhum registro" selectionMode="single"
