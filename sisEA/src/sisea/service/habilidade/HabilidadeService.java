@@ -13,15 +13,15 @@ public class HabilidadeService {
 	
 	private Connection conexao;
 	
-	public List<Habilidade> listarHabilidadesTarefa(int idTarefa){
+	public List<Habilidade> listarHabilidadesAtividade(int idAtividade){
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String query = "SELECT * FROM rel_tarefahabilidade a JOIN tb_habilidade b ON a.idHabilidade = b.idHabilidade WHERE idTarefa = ?";
+		String query = "SELECT * FROM rel_atividadehabilidade a JOIN tb_habilidade b ON a.idHabilidade = b.idHabilidade WHERE idAtividade = ?";
 		List<Habilidade> listaRetorno = new ArrayList<Habilidade>();
 		try {
 			conexao = new Conexao().getConexao();
 			ps = conexao.prepareStatement(query);
-			ps.setInt(1, idTarefa);
+			ps.setInt(1, idAtividade);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Habilidade habilidade = new Habilidade();
@@ -34,7 +34,7 @@ public class HabilidadeService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			Conexao.fecharConexoes(conexao, ps);
+			Conexao.fecharConexoes(rs, conexao, ps);
 		}
 		
 		return listaRetorno;
@@ -61,7 +61,7 @@ public class HabilidadeService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			Conexao.fecharConexoes(conexao, ps);
+			Conexao.fecharConexoes(rs, conexao, ps);
 		}
 		
 		return listaRetorno;

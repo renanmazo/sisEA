@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13693374751440" configfile="/sisEA/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" x="122" y="562" id="pf13694998678892" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|"/>
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf13695029082983" outlinks="pf13695029082984" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="content/escalonamento.xhtml" id="pf13695029082985" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13695029082984" path="/content/escalonamento/escalonamento.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf13695029082983" outlinks="pf13695029082984 pf13699649590520" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/escalonamento.xhtml" id="pf13695029082985" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13695029082984" path="/content/escalonamento/escalonamento.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividade.xhtml" id="pf13699649590521" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13699649590520" path="/content/atividade/atividade.xhtml"/>
   <links id="pf13695029082984" target="pf13695029082985" source="pf13695029082983" outcome="IR_PARA_ESCALONAMENTO"/>
+  <links id="pf13699649590520" target="pf13699649590521" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE"/>
 </pageflow:Pageflow>

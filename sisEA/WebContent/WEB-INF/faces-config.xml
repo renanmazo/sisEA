@@ -24,11 +24,23 @@
 			<to-view-id>/content/escalonamento/escalonamento.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>IR_PARA_ATIVIDADE</from-outcome>
+			<to-view-id>/content/atividade/atividade.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 
 	<!-- BEANS -->
 	<managed-bean>
 		<managed-bean-name>escalonamentoBean</managed-bean-name>
 		<managed-bean-class>sisea.view.escalonamento.EscalonamentoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>atividadeBean</managed-bean-name>
+		<managed-bean-class>sisea.view.atividade.AtividadeBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 

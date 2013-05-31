@@ -19,7 +19,7 @@ public class AtividadeService {
 	private HabilidadeService habilidadeService= new HabilidadeService();
 	
 	public List<Atividade> listarAtividades() {
-		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_tarefa t JOIN tb_projeto p ON t.idProjeto = p.idProjeto ORDER BY t.idTarefa";
+		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_atividade t JOIN tb_projeto p ON t.idProjeto = p.idProjeto ORDER BY t.idAtividade";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<Atividade> listaRetorno = new ArrayList<Atividade>();
@@ -31,7 +31,7 @@ public class AtividadeService {
 				Atividade atividade = new Atividade();
 				Projeto projeto = new Projeto();
 				
-				atividade.setIdTarefa(rs.getInt("idTarefa"));
+				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
 				atividade.setPrioridade(rs.getInt("prioridade"));
@@ -39,7 +39,7 @@ public class AtividadeService {
 				projeto.setIdProjeto(rs.getInt("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
 				atividade.setProjeto(projeto);
-				atividade.setHabilidades(habilidadeService.listarHabilidadesTarefa(atividade.getIdTarefa()));
+				atividade.setHabilidades(habilidadeService.listarHabilidadesAtividade(atividade.getIdAtividade()));
 				if(rs.getInt("idFuncionario") != 0){
 					atividade.setFuncionario(funcionarioService.listarFuncionario(rs.getInt("idFuncionario")));
 				}
@@ -57,7 +57,7 @@ public class AtividadeService {
 	}
 
 	public List<Atividade> listarAtividadesNovas() {
-		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_tarefa t JOIN tb_projeto p ON t.idProjeto = p.idProjeto WHERE status = 'NOVA' ORDER BY t.idTarefa";
+		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_atividade t JOIN tb_projeto p ON t.idProjeto = p.idProjeto WHERE status = 'NOVA' ORDER BY t.idAtividade";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<Atividade> listaRetorno = new ArrayList<Atividade>();
@@ -69,7 +69,7 @@ public class AtividadeService {
 				Atividade atividade = new Atividade();
 				Projeto projeto = new Projeto();
 				
-				atividade.setIdTarefa(rs.getInt("idTarefa"));
+				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
 				atividade.setPrioridade(rs.getInt("prioridade"));
@@ -77,7 +77,7 @@ public class AtividadeService {
 				projeto.setIdProjeto(rs.getInt("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
 				atividade.setProjeto(projeto);
-				atividade.setHabilidades(habilidadeService.listarHabilidadesTarefa(atividade.getIdTarefa()));
+				atividade.setHabilidades(habilidadeService.listarHabilidadesAtividade(atividade.getIdAtividade()));
 				listaRetorno.add(atividade);
 			}
 

@@ -64,7 +64,7 @@ public class EscalonamentoBean {
 				}
 				if(numeroHabilidadesCompativeis == habilidadesNecessarias.size()){
 					if(funcionario.getStatus() != "ALOCADO"){
-						funcionario.setTarefa(atividade);
+						funcionario.setAtividade(atividade);
 						funcionario.setStatus("ALOCADO");
 						atividade.setFuncionario(funcionario);
 						getAtividadeEscalonada().add(atividade);	

@@ -3,7 +3,8 @@ package sisea.model;
 import java.util.List;
 
 public class Atividade {
-	private int idTarefa;
+
+	private int idAtividade;
 	private String nome;
 	private String descricao;
 	private String status;
@@ -12,11 +13,11 @@ public class Atividade {
 	private Projeto projeto;
 	private List<Habilidade> habilidades;
 	
-	public int getIdTarefa() {
-		return idTarefa;
+	public int getIdAtividade() {
+		return idAtividade;
 	}
-	public void setIdTarefa(int idTarefa) {
-		this.idTarefa = idTarefa;
+	public void setIdAtividade(int idAtividade) {
+		this.idAtividade = idAtividade;
 	}
 	public String getNome() {
 		return nome;

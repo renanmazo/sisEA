@@ -8,7 +8,7 @@ public class Funcionario {
 	private String nome;
 	private String sobrenome;
 	private String status;
-	private Atividade tarefa;
+	private Atividade atividade;
 	private List<Habilidade> habilidades = new ArrayList<Habilidade>();
 	
 	public int getIdFuncionario() {
@@ -35,17 +35,17 @@ public class Funcionario {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Atividade getTarefa() {
-		return tarefa;
-	}
-	public void setTarefa(Atividade tarefa) {
-		this.tarefa = tarefa;
-	}
 	public List<Habilidade> getHabilidades() {
 		return habilidades;
 	}
 	public void setHabilidades(List<Habilidade> habilidades) {
 		this.habilidades = habilidades;
+	}
+	public Atividade getAtividade() {
+		return atividade;
+	}
+	public void setAtividade(Atividade atividade) {
+		this.atividade = atividade;
 	}
 
 }
