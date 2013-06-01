@@ -47,3 +47,10 @@
 .outputLabelBold{
 	font-style: bold;
 }
+
+.ui-panelgrid.no-border > tbody > tr{
+	border: 0px
+}
+.ui-panelgrid.no-border > tbody > td{
+	border: 0px
+}
