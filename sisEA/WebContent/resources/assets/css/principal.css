@@ -16,12 +16,15 @@
 .header{
 	 height: 100px;
 }
+
 .header .logo{
 	
 }
+
 .footer{
 	
 }
+
 .footer .copy{
 	
 }
@@ -30,6 +33,23 @@
 	margin-top: 10px;
 	width: 100%;
 
+}
+
+/* Classes gerais */
+.clear{
+	clear:both;	
+}
+
+.ui-panelgrid.no-border > tbody > tr{
+	border: 0px
+}
+
+.ui-panelgrid.no-border > tbody > td{
+	border: 0px
+}
+
+.outputLabelBold{
+	font-style: bold;
 }
 
 .gridBotao{
@@ -43,14 +63,12 @@
 .gridBotaoDireita{
 	float: right;
 }
+/* Escalonamento */
 
-.outputLabelBold{
-	font-style: bold;
-}
+/* Atividades */
 
-.ui-panelgrid.no-border > tbody > tr{
-	border: 0px
-}
-.ui-panelgrid.no-border > tbody > td{
-	border: 0px
-}
+/* Funcionários */
+
+/* Habilidades */
+
+/* Projetos */
