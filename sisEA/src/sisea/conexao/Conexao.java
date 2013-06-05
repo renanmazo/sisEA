@@ -10,26 +10,21 @@ public class Conexao {
 
 	private Connection conn;
 	private static String driver = "com.mysql.jdbc.Driver";
-	
-	private static String link = "jdbc:mysql://cpmy0031.servidorwebfacil.com/arte2_siseas";
-	private static String usuario = "arte2_sisea";
-	private static String senha = "tcc123";
+	private static String link = "jdbc:mysql://localhost/db_sisea";
+	private static String usuario = "root";
+	private static String senha = "root";
 
-	private static String altlink = "jdbc:mysql://localhost/db_sisea";
-	private static String altusuario = "root";
-	private static String altsenha = "root";
-	
-	public Connection getConexao() throws SQLException {
+
+	public Connection getConexao() {
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(link, usuario, senha);
+
 		} catch (SQLException e) {
-			if(e.getSQLState().equals("42000")){
-				conn = DriverManager.getConnection(altlink, altusuario, altsenha);
-			}
+			System.out.println(e);
 
 		} catch (ClassNotFoundException e) {
-			
+			System.out.println(e);
 		}
 		return conn;
 	}
