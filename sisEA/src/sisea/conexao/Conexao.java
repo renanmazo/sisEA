@@ -9,6 +9,7 @@ import java.sql.SQLException;
 public class Conexao {
 
 	private Connection conn;
+	
 	private static String driver = "com.mysql.jdbc.Driver";
 	private static String link = "jdbc:mysql://localhost/db_sisea";
 	private static String usuario = "root";
