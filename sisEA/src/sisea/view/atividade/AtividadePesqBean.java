@@ -9,9 +9,13 @@ import sisea.model.Atividade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.combos.CombosService;
 
-public class AtividadeBean {
+public class AtividadePesqBean {
+	AtividadeIncBean atividadeIncBean = new AtividadeIncBean();
+	AtividadeAltBean atividadeAltBean = new AtividadeAltBean();
+	
 	private CombosService combosService = new CombosService();
 	private AtividadeService atividadeService = new AtividadeService();
+	
 	
 	private List<Atividade> atividades;
 	private Atividade atividadeSelecionada;
@@ -23,7 +27,7 @@ public class AtividadeBean {
 	public String iniciarPagina(){
 		inicializar();
 		carregarComboPrioridade();
-		return "IR_PARA_ATIVIDADE";
+		return "IR_PARA_ATIVIDADE_PESQ";
 	}
 	
 	public void inicializar(){
@@ -42,12 +46,15 @@ public class AtividadeBean {
 		setAtividades(getAtividadeService().listarAtividades());
 	}
 	
-	public void botaoIncluir(){
-		
+	public String  botaoIncluir(){
+		return atividadeIncBean.iniciarPagina();
 	}
 	
-	public void botaoAlterar(){
-		
+	public String botaoAlterar(){
+		if(getAtividadeSelecionada() != null){
+			return atividadeAltBean.iniciarPagina(getAtividadeSelecionada());
+		}else
+			return "";
 	}
 	
 	public void botaoExcluir(){

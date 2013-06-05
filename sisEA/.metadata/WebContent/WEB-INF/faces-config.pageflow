@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13693374751440" configfile="/sisEA/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" x="122" y="562" id="pf13694998678892" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|"/>
-  <nodes xsi:type="pageflow:PFPage" name="*" id="pf13695029082983" outlinks="pf13695029082984 pf13699649590520" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="content/escalonamento.xhtml" id="pf13695029082985" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13695029082984" path="/content/escalonamento/escalonamento.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividade.xhtml" id="pf13699649590521" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13699649590520" path="/content/atividade/atividade.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf13695029082983" outlinks="pf13695029082984 pf13703932407620 pf13703932407621 pf13703947179644" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/escalonamento.xhtml" id="pf13695029082985" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13695029082984" path="/content/escalonamento/escalonamento.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadePesq.xhtml" id="pf13703932407622" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf13703932407620" path="/content/atividade/atividadePesq.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadeInc.xhtml" id="pf13703932407623" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf13703932407621" path="/content/atividade/atividadeInc.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadeAlt.xhtml" id="pf13703947179655" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf13703947179644" path="/content/atividade/atividadeAlt.xhtml"/>
   <links id="pf13695029082984" target="pf13695029082985" source="pf13695029082983" outcome="IR_PARA_ESCALONAMENTO"/>
-  <links id="pf13699649590520" target="pf13699649590521" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE"/>
+  <links id="pf13703932407620" target="pf13703932407622" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE_PESQ"/>
+  <links id="pf13703932407621" target="pf13703932407623" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE_INC"/>
+  <links id="pf13703947179644" target="pf13703947179655" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE_ALT"/>
 </pageflow:Pageflow>

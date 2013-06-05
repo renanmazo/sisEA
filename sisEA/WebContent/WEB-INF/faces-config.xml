@@ -23,11 +23,20 @@
 			<from-outcome>IR_PARA_ESCALONAMENTO</from-outcome>
 			<to-view-id>/content/escalonamento/escalonamento.xhtml</to-view-id>
 		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
+
 		<navigation-case>
-			<from-outcome>IR_PARA_ATIVIDADE</from-outcome>
-			<to-view-id>/content/atividade/atividade.xhtml</to-view-id>
+			<from-outcome>IR_PARA_ATIVIDADE_PESQ</from-outcome>
+			<to-view-id>/content/atividade/atividadePesq.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_ATIVIDADE_INC</from-outcome>
+			<to-view-id>/content/atividade/atividadeInc.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_ATIVIDADE_ALT</from-outcome>
+			<to-view-id>/content/atividade/atividadeAlt.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
@@ -39,8 +48,18 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>atividadeBean</managed-bean-name>
-		<managed-bean-class>sisea.view.atividade.AtividadeBean</managed-bean-class>
+		<managed-bean-name>atividadePesqBean</managed-bean-name>
+		<managed-bean-class>sisea.view.atividade.AtividadePesqBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>atividadeIncBean</managed-bean-name>
+		<managed-bean-class>sisea.view.atividade.AtividadeIncBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>atividadeAltBean</managed-bean-name>
+		<managed-bean-class>sisea.view.atividade.AtividadeAltBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
