@@ -10,8 +10,8 @@ import sisea.service.atividade.AtividadeService;
 import sisea.service.combos.CombosService;
 
 public class AtividadePesqBean {
-	AtividadeIncBean atividadeIncBean = new AtividadeIncBean();
-	AtividadeAltBean atividadeAltBean = new AtividadeAltBean();
+	private AtividadeIncBean atividadeIncBean = new AtividadeIncBean();
+	private AtividadeAltBean atividadeAltBean = new AtividadeAltBean();
 	
 	private CombosService combosService = new CombosService();
 	private AtividadeService atividadeService = new AtividadeService();
@@ -46,8 +46,8 @@ public class AtividadePesqBean {
 		setAtividades(getAtividadeService().listarAtividades());
 	}
 	
-	public String  botaoIncluir(){
-		return atividadeIncBean.iniciarPagina();
+	public String botaoIncluir(){
+		return getAtividadeIncBean().iniciarPagina();
 	}
 	
 	public String botaoAlterar(){
@@ -115,6 +115,22 @@ public class AtividadePesqBean {
 
 	public void setAtividadeService(AtividadeService atividadeService) {
 		this.atividadeService = atividadeService;
+	}
+
+	public AtividadeIncBean getAtividadeIncBean() {
+		return atividadeIncBean;
+	}
+
+	public void setAtividadeIncBean(AtividadeIncBean atividadeIncBean) {
+		this.atividadeIncBean = atividadeIncBean;
+	}
+
+	public AtividadeAltBean getAtividadeAltBean() {
+		return atividadeAltBean;
+	}
+
+	public void setAtividadeAltBean(AtividadeAltBean atividadeAltBean) {
+		this.atividadeAltBean = atividadeAltBean;
 	}
 
 }

@@ -19,7 +19,7 @@ public class AtividadeIncBean {
 		inicializar();
 		carregaComboPrioridade();
 		carregaComboProjeto();
-		return "IR_PARA_ATIVIDADE_INC";
+		return "atividadeInc.xhtml?faces-redirect=true";
 	}
 	
 	public void inicializar(){

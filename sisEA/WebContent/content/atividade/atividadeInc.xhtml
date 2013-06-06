@@ -27,14 +27,17 @@
 
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
+						<p:inputText value="#{atividadeIncBean.atividade.nome}" />
 					</h:panelGroup>
 
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_descricao}: " />
+						<p:inputTextarea value="#{atividadeIncBean.atividade.descricao}"/>
 					</h:panelGroup>
 					
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_status}: " />
+						
 					</h:panelGroup>
 				</h:panelGrid>
 

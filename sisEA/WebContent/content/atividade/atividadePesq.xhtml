@@ -60,8 +60,8 @@
 				<h:panelGrid styleClass="gridBotao" columns="1">
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
-							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}"
-								ajax="false" action="#{atividadePesqBean.botaoIncluir}"/>
+							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}" update="atividadeForm"
+								action="#{atividadeIncBean.iniciarPagina}"/>
 							<p:commandButton id="btnAlterar" value="#{msgs.btn_alterar}"
 								update="atividadeForm" action="#{atividadePesqBean.botaoAlterar}"/>
 							<p:commandButton id="btnExcluir" value="#{msgs.btn_excluir}"
