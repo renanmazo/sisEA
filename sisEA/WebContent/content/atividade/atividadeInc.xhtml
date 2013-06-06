@@ -8,7 +8,36 @@
 		<h:form id="atividadeIncForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
-				TESTE INCLUIR
+
+				<h:panelGrid columns="2" width="100%">
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_prioridade}: " />
+						<p:selectOneMenu value="#{atividadeIncBean.atividade.idPrioridade}">
+							<f:selectItems value="#{atividadeIncBean.comboPrioridade}" />
+						</p:selectOneMenu>
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_projeto}: " />
+						<p:selectOneMenu value="#{atividadeIncBean.atividade.projeto.idProjeto}">
+							<f:selectItems value="#{atividadeIncBean.comboProjeto}" />
+						</p:selectOneMenu>
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_nome}: " />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_descricao}: " />
+					</h:panelGroup>
+					
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_status}: " />
+					</h:panelGroup>
+				</h:panelGrid>
+
 			</h:panelGrid>
 
 		</h:form>

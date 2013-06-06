@@ -11,8 +11,8 @@ public final class SiteUtil {
 				|| valor.toString().equals(String.valueOf(0));
 	}
 	
-	public static String prioridadeLiteral(int prioridade){
-		switch (prioridade) {
+	public static String prioridadeLiteral(String prioridade){
+		switch (Integer.parseInt(prioridade)) {
 		case 1:
 			return "Altíssima";
 		case 2:

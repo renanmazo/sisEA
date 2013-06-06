@@ -35,10 +35,10 @@ public class AtividadeService {
 				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
-				atividade.setIdPrioridade(rs.getInt("prioridade"));
+				atividade.setIdPrioridade(rs.getString("prioridade"));
 				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
 				atividade.setStatus(rs.getString("status"));
-				projeto.setIdProjeto(rs.getInt("idProjeto"));
+				projeto.setIdProjeto(rs.getString("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
 				atividade.setProjeto(projeto);
 				atividade.setHabilidades(habilidadeService.listarHabilidadesAtividade(atividade.getIdAtividade()));
@@ -74,10 +74,10 @@ public class AtividadeService {
 				atividade.setIdAtividade(rs.getInt("idAtividade"));
 				atividade.setNome(rs.getString("nome"));
 				atividade.setDescricao(rs.getString("descricao"));
-				atividade.setIdPrioridade(rs.getInt("prioridade"));
+				atividade.setIdPrioridade(rs.getString("prioridade"));
 				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
 				atividade.setStatus(rs.getString("status"));
-				projeto.setIdProjeto(rs.getInt("idProjeto"));
+				projeto.setIdProjeto(rs.getString("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
 				atividade.setProjeto(projeto);
 				atividade.setHabilidades(habilidadeService.listarHabilidadesAtividade(atividade.getIdAtividade()));
