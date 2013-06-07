@@ -27,10 +27,20 @@ public class CombosService {
 		List<SelectItem> listaRetorno = new ArrayList<SelectItem>();
 		List<Projeto> projetos = getProjetoService().listarProjetos();
 		
-		for (int i = 0; i < projetos.size(); i++) {
-			listaRetorno.add(new SelectItem(String.valueOf(projetos.get(i).getIdProjeto()), projetos.get(i).getNome()));			
+		for (Projeto projeto : projetos) {
+			listaRetorno.add(new SelectItem(projeto.getIdProjeto(), projeto.getNome()));			
 		}
 		
+		return listaRetorno;
+	}
+	
+	public List<SelectItem> carregaComboStatus(){
+		List<SelectItem> listaRetorno = new ArrayList<SelectItem>();
+		listaRetorno.add(new SelectItem("NOVA", "Nova"));
+		listaRetorno.add(new SelectItem("PAUSADA", "Pausada"));
+		listaRetorno.add(new SelectItem("EM ANDAMENTO", "Em andamento"));
+		listaRetorno.add(new SelectItem("FINALIZADA", "Finalizada"));
+		listaRetorno.add(new SelectItem("CANCELADA", "Cancelada"));
 		return listaRetorno;
 	}
 

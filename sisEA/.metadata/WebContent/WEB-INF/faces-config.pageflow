@@ -4,7 +4,7 @@
   <nodes xsi:type="pageflow:PFPage" name="*" id="pf13695029082983" outlinks="pf13695029082984 pf13703932407620 pf13703932407621 pf13703947179644" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="content/escalonamento.xhtml" id="pf13695029082985" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13695029082984" path="/content/escalonamento/escalonamento.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadePesq.xhtml" id="pf13703932407622" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf13703932407620" path="/content/atividade/atividadePesq.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadeInc.xhtml" id="pf13703932407623" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf13703932407621" path="/content/atividade/atividadeInc.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadeInc.xhtml" id="pf13703932407623" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf13703932407621" path="/content/atividade/atividadeInc.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="content/atividade/atividadeAlt.xhtml" id="pf13703947179655" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf13703947179644" path="/content/atividade/atividadeAlt.xhtml"/>
   <links id="pf13695029082984" target="pf13695029082985" source="pf13695029082983" outcome="IR_PARA_ESCALONAMENTO"/>
   <links id="pf13703932407620" target="pf13703932407622" source="pf13695029082983" outcome="IR_PARA_ATIVIDADE_PESQ"/>
