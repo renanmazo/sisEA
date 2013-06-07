@@ -8,17 +8,31 @@
 		<h:form id="atividadeIncForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
+<<<<<<< HEAD
 				<h:panelGrid columns="2" width="50%">
 					
+=======
+				<h:panelGrid columns="2" width="100%">
+
+>>>>>>> branch 'master' of https://github.com/renanmazo/sisEA.git
 					<h:panelGroup>
+<<<<<<< HEAD
 						<p:outputLabel value="#{msgs.lbl_prioridade}: " styleClass="comboLabel" />
 						<p:selectOneMenu value="#{atividadeIncBean.atividade.idPrioridade}">
+=======
+						<p:outputLabel value="#{msgs.lbl_prioridade}: " styleClass="comboLabel"/>
+						<p:selectOneMenu value="#{atividadeIncBean.atividade.idPrioridade}" >
+>>>>>>> branch 'master' of https://github.com/renanmazo/sisEA.git
 							<f:selectItems value="#{atividadeIncBean.comboPrioridade}" />
 						</p:selectOneMenu>
 					</h:panelGroup>
 
 					<h:panelGroup>
+<<<<<<< HEAD
 						<p:outputLabel value="#{msgs.lbl_projeto}: " styleClass="comboLabel" />
+=======
+						<p:outputLabel value="#{msgs.lbl_projeto}: " styleClass="comboLabel"/>
+>>>>>>> branch 'master' of https://github.com/renanmazo/sisEA.git
 						<p:selectOneMenu value="#{atividadeIncBean.atividade.projeto.idProjeto}">
 							<f:selectItems value="#{atividadeIncBean.comboProjeto}" />
 						</p:selectOneMenu>
@@ -30,12 +44,27 @@
 					</h:panelGroup>
 
 					<h:panelGroup>
+<<<<<<< HEAD
 						<p:outputLabel value="#{msgs.lbl_status}: " styleClass="comboLabel" />
 						<p:selectOneMenu value="#{atividadeIncBean.atividade.status}">
 							<f:selectItems value="#{atividadeIncBean.comboStatus}" />
 						</p:selectOneMenu>
+=======
+						<p:outputLabel value="#{msgs.lbl_descricao}: " styleClass="comboLabel"/>
+						<p:inputTextarea value="#{atividadeIncBean.atividade.descricao}"/>
+>>>>>>> branch 'master' of https://github.com/renanmazo/sisEA.git
 					</h:panelGroup>
+<<<<<<< HEAD
 
+=======
+					
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_status}: " styleClass="comboLabel"/>
+						<p:selectOneMenu value="#{atividadeIncBean.atividade.status}">
+							<f:selectItems value="#{atividadeIncBean.comboStatus}" />
+						</p:selectOneMenu>
+					</h:panelGroup>
+>>>>>>> branch 'master' of https://github.com/renanmazo/sisEA.git
 				</h:panelGrid>
 
 				<h:panelGroup>

@@ -12,14 +12,15 @@
 </h:head>
 <h:body>
 	<div class="main">
-		<div class="header">
-			<ui:include src="/content/padrao/header.xhtml" />
-		</div>
-
-		<div class="menu">
-			<ui:include src="/content/padrao/menu.xhtml" />
-		</div>
-
+		<h:form id="formTopo">
+			<div class="header">
+				<ui:include src="/content/padrao/header.xhtml" />
+			</div>
+	
+			<div class="menu">
+				<ui:include src="/content/padrao/menu.xhtml" />
+			</div>
+		</h:form>
 		<div class="content">
 			<ui:insert name="corpo"/>
 		</div>

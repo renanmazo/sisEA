@@ -4,18 +4,19 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-
+		<h1>Gerenciar atividades</h1>
 		<h:form id="atividadeForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
-				<h:panelGrid columns="2" width="100%">
+				<!-- PESQUISA -->
+				<h:panelGrid columns="2" width="478" styleClass="boxPesquisa">
 					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
 						<h:panelGroup>
 							<p:outputLabel value="Nome: " />
 							<p:inputText value="#{atividadePesqBean.nome}" />
 						</h:panelGroup>
 						<h:panelGroup>
-							<p:outputLabel value="Prioridade: " />
+							<p:outputLabel value="Prioridade: " styleClass="comboLabel"/>
 							<p:selectOneMenu value="#{atividadePesqBean.prioridadeSelecionada}">
 								<f:selectItems value="#{atividadePesqBean.comboPrioridade}" />
 							</p:selectOneMenu>

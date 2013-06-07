@@ -1,11 +1,46 @@
 *{
 	font-size: 12px;
-	font-family: Helvetica,Arial,sans-serif;	
+	font-family: Helvetica,Arial,sans-serif;
+}
+body{
+	padding: 0;
+	margin: 0;	
 }
 
+/* ELEMENTOS GERAIS */
+h1{
+	color: #0073EA;
+	font-size: 1.6em;
+}
+h2{
+	color: #0073EA
+}
+h3{
+	color: #0073ed
+}
+h4{
+	
+}
+
+p{
+	
+}
+
+form{
+	padding: 10px;
+}
+
+
+/* ELEMENTOS DA TEMPLATE PADRÃO*/
 .content, .menu, .header, .footer{
 	width: 100%;
 	min-width: 500px;
+}
+
+#formTopo{
+	border-radius: 0 0 4px 4px;
+    border-top: 0 none;
+    margin-bottom: 10px;
 }
 
 .main{
@@ -30,7 +65,6 @@
 }
 
 .gridPrincipal{
-	margin-top: 10px;
 	width: 100%;
 
 }
@@ -38,6 +72,12 @@
 /* Classes gerais */
 .clear{
 	clear:both;	
+}
+
+.comboLabel{
+	display: block;
+    float: left;
+    padding: 5px 3px 0 0;
 }
 
 .ui-panelgrid.no-border > tbody > tr{
@@ -63,6 +103,27 @@
 .gridBotaoDireita{
 	float: right;
 }
+
+.content > form{
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	box-shadow: 0 0 3px #CCC;
+}
+
+/* LISTAGENS */
+.boxPesquisa{
+	border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 42px rgba(0, 0, 0, 0.12) inset;
+    margin: 0 0 10px 3px;
+    font-weight: bold;
+    transition:.5s;
+}
+
+.boxPesquisa:hover{
+    box-shadow: 0 0 42px rgba(0,117, 235, 0.4) inset
+}
+
 
 /* Escalonamento */
 
