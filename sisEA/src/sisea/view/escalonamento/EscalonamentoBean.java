@@ -50,7 +50,7 @@ public class EscalonamentoBean {
 	}
 	
 	public void realizarEscalonamento(){
-		getAtividadeEscalonada().clear();
+		setAtividadeEscalonada(new ArrayList<Atividade>());
 		carregarListasOrdenadas();
 
 		for(Atividade atividade : atividadesOrdenadas){
