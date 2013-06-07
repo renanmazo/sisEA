@@ -8,9 +8,10 @@ import javax.faces.model.SelectItem;
 import sisea.model.Atividade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.combos.CombosService;
+import sisea.util.SiteUtil;
 
 public class AtividadePesqBean {
-	private AtividadeIncBean atividadeIncBean = new AtividadeIncBean();
+	private AtividadeIncBean atividadeIncBean = (AtividadeIncBean) SiteUtil.getBeanFromSession("atividadeIncBean");
 	private AtividadeAltBean atividadeAltBean = new AtividadeAltBean();
 	
 	private CombosService combosService = new CombosService();
