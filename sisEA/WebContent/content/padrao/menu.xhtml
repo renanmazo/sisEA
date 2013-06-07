@@ -3,11 +3,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 		<p:growl id="messages" />
 		<p:menubar autoDisplay="false">
 			<p:menuitem value="#{msgs.menu_home}" icon="ui-icon-home" action="/index.xhtml" ajax="false"/>
-			
+
 			<p:submenu label="#{msgs.menu_cadastramento}" icon="ui-icon-document">
 				<p:menuitem value="#{msgs.submenu_atividades}" action="#{atividadePesqBean.iniciarPagina}" ajax="false"/>
 				<p:menuitem value="#{msgs.submenu_funcionarios}" action="#{funcionariosPesqBean.iniciarPagina}" ajax="false" />
