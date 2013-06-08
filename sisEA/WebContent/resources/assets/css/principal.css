@@ -117,11 +117,6 @@ form{
     box-shadow: 0 0 42px rgba(0, 0, 0, 0.12) inset;
     margin: 0 0 10px 3px;
     font-weight: bold;
-    transition:.5s;
-}
-
-.boxPesquisa:hover{
-    box-shadow: 0 0 42px rgba(0,117, 235, 0.4) inset
 }
 
 
