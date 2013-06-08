@@ -12,7 +12,7 @@ import sisea.util.SiteUtil;
 
 public class AtividadePesqBean {
 	private AtividadeIncBean atividadeIncBean = (AtividadeIncBean) SiteUtil.getBeanFromSession("atividadeIncBean");
-	private AtividadeAltBean atividadeAltBean = new AtividadeAltBean();
+	private AtividadeAltBean atividadeAltBean = (AtividadeAltBean) SiteUtil.getBeanFromSession("atividadeAltBean");
 	
 	private CombosService combosService = new CombosService();
 	private AtividadeService atividadeService = new AtividadeService();

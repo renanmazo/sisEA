@@ -8,6 +8,7 @@ public class Atividade {
 	private String nome;
 	private String descricao;
 	private String status;
+	private String idStatus;
 	private String idPrioridade;
 	private String prioridade;
 	private Funcionario funcionario;
@@ -67,5 +68,11 @@ public class Atividade {
 	}
 	public void setIdPrioridade(String idPrioridade) {
 		this.idPrioridade = idPrioridade;
+	}
+	public String getIdStatus() {
+		return idStatus;
+	}
+	public void setIdStatus(String idStatus) {
+		this.idStatus = idStatus;
 	}
 }

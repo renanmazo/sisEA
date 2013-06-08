@@ -37,7 +37,8 @@ public class AtividadeService {
 				atividade.setDescricao(rs.getString("descricao"));
 				atividade.setIdPrioridade(rs.getString("prioridade"));
 				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
-				atividade.setStatus(rs.getString("status"));
+				atividade.setIdStatus(rs.getString("status"));
+				atividade.setStatus(SiteUtil.statusLiteral(atividade.getIdStatus()));
 				projeto.setIdProjeto(rs.getString("idProjeto"));
 				projeto.setNome(rs.getString("nomeProjeto"));
 				atividade.setProjeto(projeto);

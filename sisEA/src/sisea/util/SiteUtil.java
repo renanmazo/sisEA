@@ -3,6 +3,7 @@ package sisea.util;
 import javax.el.ELContext;
 import javax.el.ELResolver;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 public final class SiteUtil {
 
@@ -31,6 +32,21 @@ public final class SiteUtil {
 			return "";
 		}
 
+	}
+	
+	public static String statusLiteral(String status){
+		if(status.equals("NOVA")){
+			return "Nova";
+		}else if(status.equals("PAUSADA")){
+			return "Pausada";
+		}else if(status.equals("EM ANDAMENTO")){
+			return "Em andamento";
+		}else if(status.equals("FINALIZADA")){
+			return "Finalizada";   
+		}else if(status.equals("CANCELADA")){
+			return "Cancelada";
+		}else
+			return "";
 	}
 
 	public static Object getBeanFromSession(String nomeDoBean) {

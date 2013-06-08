@@ -13,6 +13,32 @@ public class HabilidadeService {
 	
 	private Connection conexao;
 	
+	public List<Habilidade> listarHabilidades(){
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String query = "SELECT * FROM tb_habilidade";
+		List<Habilidade> listaRetorno = new ArrayList<Habilidade>();
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Habilidade habilidade = new Habilidade();
+				habilidade.setDescricao(rs.getString("descricao"));
+				habilidade.setIdHabilidade(rs.getInt("idHabilidade"));
+				listaRetorno.add(habilidade);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(rs, conexao, ps);
+		}
+		
+		return listaRetorno;
+	}
+	
 	public List<Habilidade> listarHabilidadesAtividade(int idAtividade){
 		PreparedStatement ps = null;
 		ResultSet rs = null;
