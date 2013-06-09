@@ -9,8 +9,8 @@ import sisea.service.combos.CombosService;
 import sisea.util.SiteUtil;
 
 public class ProjetoPesqBean {
-	private ProjetoIncBean projetoIncBean = (ProjetoIncBean) SiteUtil.getBeanFromSession("atividadeIncBean");
-	private ProjetoAltBean projetoAltBean = (ProjetoAltBean) SiteUtil.getBeanFromSession("atividadeAltBean");
+	private ProjetoIncBean projetoIncBean = (ProjetoIncBean) SiteUtil.getBeanFromSession("projetoIncBean");
+	private ProjetoAltBean projetoAltBean = (ProjetoAltBean) SiteUtil.getBeanFromSession("projetoAltBean");
 	
 	private CombosService combosService = new CombosService();
 	private ProjetoService projetoService = new ProjetoService();
@@ -37,7 +37,7 @@ public class ProjetoPesqBean {
 	}
 	
 	public String botaoIncluir(){
-		return getAtividadeIncBean().iniciarPagina();
+		return getProjetoIncBean().iniciarPagina();
 	}
 	
 	public String botaoAlterar(){
@@ -59,7 +59,7 @@ public class ProjetoPesqBean {
 		this.combosService = combosService;
 	}
 
-	public List<Projeto> getAtividades() {
+	public List<Projeto> getProjetos() {
 		return projetos;
 	}
 
@@ -91,7 +91,7 @@ public class ProjetoPesqBean {
 		this.projetoService = projetoService;
 	}
 
-	public ProjetoIncBean getAtividadeIncBean() {
+	public ProjetoIncBean getProjetoIncBean() {
 		return projetoIncBean;
 	}
 
