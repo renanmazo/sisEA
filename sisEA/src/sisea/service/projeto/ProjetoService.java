@@ -23,10 +23,9 @@ public class ProjetoService {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Projeto projeto = new Projeto();
-				
 				projeto.setIdProjeto(rs.getString("idProjeto"));
 				projeto.setNome(rs.getString("nome"));
-				//projeto.setCliente(rs.getString("cliente"));
+				projeto.setCliente(rs.getString("cliente"));
 				listaRetorno.add(projeto);
 			}
 			
