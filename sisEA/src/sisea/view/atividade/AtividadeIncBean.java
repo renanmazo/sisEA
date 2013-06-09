@@ -10,11 +10,11 @@ import org.primefaces.model.DualListModel;
 import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.habilidade.HabilidadeService;
+import sisea.service.habilidade.FuncionarioService;
 
 public class AtividadeIncBean {
 	private CombosService combosService = new CombosService();
-	private HabilidadeService habilidadeService = new HabilidadeService();
+	private FuncionarioService habilidadeService = new FuncionarioService();
 
 	private Atividade atividade;
 	private List<SelectItem> comboPrioridade;
@@ -41,7 +41,7 @@ public class AtividadeIncBean {
 	public void carregaPickListHabilidades(){
 		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
 		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
-		habilidadesExistentes = getHabilidadeService().listarHabilidades();
+		habilidadesExistentes = getHabilidadeService().listarFuncionarios();
 
 		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, habilidadesAtividade));
 	}
@@ -97,11 +97,11 @@ public class AtividadeIncBean {
 		return this.comboStatus;
 	}	
 
-	public HabilidadeService getHabilidadeService() {
+	public FuncionarioService getHabilidadeService() {
 		return habilidadeService;
 	}
 
-	public void setHabilidadeService(HabilidadeService habilidadeService) {
+	public void setHabilidadeService(FuncionarioService habilidadeService) {
 		this.habilidadeService = habilidadeService;
 	}
 

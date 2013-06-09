@@ -6,7 +6,7 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import sisea.model.Atividade;
-import sisea.service.atividade.AtividadeService;
+import sisea.service.atividade.ProjetoService;
 import sisea.service.combos.CombosService;
 import sisea.util.SiteUtil;
 
@@ -15,7 +15,7 @@ public class AtividadePesqBean {
 	private AtividadeAltBean atividadeAltBean = (AtividadeAltBean) SiteUtil.getBeanFromSession("atividadeAltBean");
 	
 	private CombosService combosService = new CombosService();
-	private AtividadeService atividadeService = new AtividadeService();
+	private ProjetoService atividadeService = new ProjetoService();
 	
 	
 	private List<Atividade> atividades;
@@ -110,11 +110,11 @@ public class AtividadePesqBean {
 		this.nome = nome;
 	}
 
-	public AtividadeService getAtividadeService() {
+	public ProjetoService getAtividadeService() {
 		return atividadeService;
 	}
 
-	public void setAtividadeService(AtividadeService atividadeService) {
+	public void setAtividadeService(ProjetoService atividadeService) {
 		this.atividadeService = atividadeService;
 	}
 
