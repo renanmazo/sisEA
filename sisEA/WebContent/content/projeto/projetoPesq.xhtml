@@ -1,0 +1,77 @@
+<ui:composition template="/content/templates/template.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:define name="corpo">
+		<h1>#{msgs.lbl_gerenciar_atividades}</h1>
+		<h:form id="atividadeForm">
+
+			<h:panelGrid styleClass="gridPrincipal">
+				<!-- PESQUISA -->
+				<h:panelGrid columns="2" width="478" styleClass="boxPesquisa">
+					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
+						<h:panelGroup>
+							<p:outputLabel value="Nome: " />
+							<p:inputText value="#{atividadePesqBean.nome}" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<p:outputLabel value="Prioridade: " styleClass="comboLabel"/>
+							<p:selectOneMenu value="#{atividadePesqBean.prioridadeSelecionada}">
+								<f:selectItems value="#{atividadePesqBean.comboPrioridade}" />
+							</p:selectOneMenu>
+						</h:panelGroup>
+					</h:panelGrid>
+					<h:panelGrid styleClass="gridBotaoDireita">
+						<h:panelGroup>
+							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}" action="#{atividadePesqBean.botaoPesquisar}"
+								update="atividadeForm" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</h:panelGrid>
+
+				<h:panelGrid columns="1" width="100%">
+					<p:dataTable id="tabelaAtividades" var="item" selection="#{atividadePesqBean.atividadeSelecionada}" 
+						selectionMode="single" rowKey="#{item.idAtividade}" value="#{atividadePesqBean.atividades}"
+						paginator="true" rows="10" paginatorPosition="bottom" paginatorAlwaysVisible="false" 
+						emptyMessage="#{msgs.lbl_nenhum_registro}">
+						<f:facet name="header">
+							<h:outputText value="#{msgs.lbl_atividades}"></h:outputText>
+						</f:facet>
+						<p:column headerText="#{msgs.lbl_prioridade}">
+							<h:outputText value="#{item.prioridade}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_projeto}">
+							<h:outputText value="#{item.projeto.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_nome}">
+							<h:outputText value="#{item.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_funcionario}">
+							<h:outputText value="#{item.funcionario.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_status}">
+							<h:outputText value="#{item.status}"></h:outputText>
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+
+				<p:separator id="separator" />
+
+				<h:panelGrid styleClass="gridBotao" columns="1">
+					<h:panelGrid styleClass="gridBotaoDireita">
+						<h:panelGroup>
+							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}" update="atividadeForm"
+								action="#{atividadePesqBean.botaoIncluir}"/>
+							<p:commandButton id="btnAlterar" value="#{msgs.btn_alterar}"
+								update="atividadeForm" action="#{atividadePesqBean.botaoAlterar}"/>
+							<p:commandButton id="btnExcluir" value="#{msgs.btn_excluir}"
+								update="atividadeForm" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</h:panelGrid>
+			</h:panelGrid>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
