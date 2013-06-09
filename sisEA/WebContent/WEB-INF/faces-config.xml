@@ -19,11 +19,13 @@
 
 	<!-- REGRAS DE NAVEGAÇÃO -->
 	<navigation-rule>
+		<!-- ESCALONAMENTO -->
 		<navigation-case>
 			<from-outcome>IR_PARA_ESCALONAMENTO</from-outcome>
 			<to-view-id>/content/escalonamento/escalonamento.xhtml</to-view-id>
 		</navigation-case>
-
+		
+		<!-- ATIVIDADE -->
 		<navigation-case>
 			<from-outcome>IR_PARA_ATIVIDADE_PESQ</from-outcome>
 			<to-view-id>/content/atividade/atividadePesq.xhtml</to-view-id>
@@ -37,6 +39,54 @@
 		<navigation-case>
 			<from-outcome>IR_PARA_ATIVIDADE_ALT</from-outcome>
 			<to-view-id>/content/atividade/atividadeAlt.xhtml</to-view-id>
+		</navigation-case>
+		
+		<!-- FUNCIONARIO -->
+		<navigation-case>
+			<from-outcome>IR_PARA_FUNCIONARIO_PESQ</from-outcome>
+			<to-view-id>/content/funcionario/funcionarioPesq.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_FUNCIONARIO_INC</from-outcome>
+			<to-view-id>/content/funcionario/funcionarioInc.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_FUNCIONARIO_ALT</from-outcome>
+			<to-view-id>/content/funcionario/funcionarioAlt.xhtml</to-view-id>
+		</navigation-case>
+		
+		<!-- HABILIDADE -->
+		<navigation-case>
+			<from-outcome>IR_PARA_HABILIDADE_PESQ</from-outcome>
+			<to-view-id>/content/habilidade/habilidadePesq.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_HABILIDADE_INC</from-outcome>
+			<to-view-id>/content/habilidade/habilidadeInc.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_HABILIDADE_ALT</from-outcome>
+			<to-view-id>/content/habilidade/habilidadeAlt.xhtml</to-view-id>
+		</navigation-case>
+		
+		<!-- PROJETO -->
+		<navigation-case>
+			<from-outcome>IR_PARA_PROJETO_PESQ</from-outcome>
+			<to-view-id>/content/projeto/projetoPesq.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_PROJETO_INC</from-outcome>
+			<to-view-id>/content/projeto/projetoInc.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>IR_PARA_PROJETO_ALT</from-outcome>
+			<to-view-id>/content/projeto/projetoAlt.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	
@@ -62,6 +112,57 @@
 		<managed-bean>
 		<managed-bean-name>atividadeAltBean</managed-bean-name>
 		<managed-bean-class>sisea.view.atividade.AtividadeAltBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- FUNCIONARIO -->
+	<managed-bean>
+		<managed-bean-name>funcionarioPesqBean</managed-bean-name>
+		<managed-bean-class>sisea.view.funcionario.FuncionarioPesqBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>funcionarioIncBean</managed-bean-name>
+		<managed-bean-class>sisea.view.funcionario.FuncionarioIncBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>funcionarioAltBean</managed-bean-name>
+		<managed-bean-class>sisea.view.funcionario.FuncionarioAltBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- PROJETO -->
+	<managed-bean>
+		<managed-bean-name>projetoPesqBean</managed-bean-name>
+		<managed-bean-class>sisea.view.projeto.ProjetoPesqBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>projetoIncBean</managed-bean-name>
+		<managed-bean-class>sisea.view.projeto.ProjetoIncBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>projetoAltBean</managed-bean-name>
+		<managed-bean-class>sisea.view.projeto.ProjetoAltBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- HABILIDADE -->
+	<managed-bean>
+		<managed-bean-name>habilidadePesqBean</managed-bean-name>
+		<managed-bean-class>sisea.view.habilidade.HabilidadePesqBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>habilidadeIncBean</managed-bean-name>
+		<managed-bean-class>sisea.view.habilidade.HabilidadeIncBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+		<managed-bean>
+		<managed-bean-name>projetoAltBean</managed-bean-name>
+		<managed-bean-class>sisea.view.habilidade.HabilidadeAltBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
