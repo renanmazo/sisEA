@@ -10,11 +10,13 @@ import org.primefaces.model.DualListModel;
 import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.habilidade.FuncionarioService;
+import sisea.service.habilidade.HabilidadeService;
+import sisea.service.atividade.AtividadeService;
 
 public class AtividadeAltBean {
 	private CombosService combosService = new CombosService();
-	private FuncionarioService habilidadeService = new FuncionarioService();
+	private AtividadeService atividadeService = new AtividadeService();
+	private HabilidadeService habilidadeService = new HabilidadeService();
 	
 	private Atividade atividade;
 	private List<SelectItem> comboPrioridade;
@@ -41,7 +43,6 @@ public class AtividadeAltBean {
 		carregaComboPrioridade();
 		carregaComboProjeto();
 		carregaComboStatus();
-		carregaPickListHabilidades();
 	}
 	
 	public void carregaComboPrioridade(){
@@ -55,27 +56,6 @@ public class AtividadeAltBean {
 	public void carregaComboStatus(){
 		setComboStatus(getCombosService().carregaComboStatus());
 	}
-	
-	//NÃO ESTÁ FUNCIONANDO PERFEITAMENTE
-	public void carregaPickListHabilidades(){
-		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
-		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
-		List<Habilidade> habilidadesRestantes = new ArrayList<Habilidade>();
-		habilidadesAtividade = getAtividade().getHabilidades();
-		habilidadesExistentes = getHabilidadeService().listarFuncionarios();
-		
-		for(Habilidade habilidadeExistente : habilidadesExistentes){
-			for(Habilidade habilidadeAtividade : habilidadesAtividade){
-				if(habilidadeExistente.getIdHabilidade() != habilidadeAtividade.getIdHabilidade()){
-					habilidadesRestantes.add(habilidadeExistente);
-				}
-				break;
-			}
-		}
-
-		setHabilidades(new DualListModel<Habilidade>(habilidadesRestantes, habilidadesAtividade));
-	}
-
 
 	public Atividade getAtividade() {
 		return atividade;
@@ -125,11 +105,11 @@ public class AtividadeAltBean {
 		this.habilidades = habilidades;
 	}
 
-	public FuncionarioService getHabilidadeService() {
+	public HabilidadeService getHabilidadeService() {
 		return habilidadeService;
 	}
 
-	public void setHabilidadeService(FuncionarioService habilidadeService) {
+	public void setHabilidadeService(HabilidadeService habilidadeService) {
 		this.habilidadeService = habilidadeService;
 	}
 

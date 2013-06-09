@@ -161,7 +161,7 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 		<managed-bean>
-		<managed-bean-name>projetoAltBean</managed-bean-name>
+		<managed-bean-name>habilidadeAltBean</managed-bean-name>
 		<managed-bean-class>sisea.view.habilidade.HabilidadeAltBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>

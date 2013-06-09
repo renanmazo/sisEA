@@ -10,11 +10,13 @@ import org.primefaces.model.DualListModel;
 import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.habilidade.FuncionarioService;
+import sisea.service.funcionario.FuncionarioService;
+import sisea.service.habilidade.HabilidadeService;
+import sisea.service.projeto.ProjetoService;
 
 public class ProjetoIncBean {
 	private CombosService combosService = new CombosService();
-	private FuncionarioService habilidadeService = new FuncionarioService();
+	private ProjetoService projetoService = new ProjetoService();
 
 	private Atividade atividade;
 	private List<SelectItem> comboPrioridade;
@@ -24,34 +26,13 @@ public class ProjetoIncBean {
 
 	public String iniciarPagina() {
 		inicializar();
-		carregaComboPrioridade();
-		carregaComboProjeto();
 		carregaComboStatus();
-		carregaPickListHabilidades();
 		return "atividadeInc.xhtml?faces-redirect=true";
 	}
 
 	public void inicializar() {
 		setAtividade(new Atividade());
-		setComboPrioridade(new ArrayList<SelectItem>());
-		setComboProjeto(new ArrayList<SelectItem>());
 		setComboStatus(new ArrayList<SelectItem>());
-	}
-	
-	public void carregaPickListHabilidades(){
-		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
-		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
-		habilidadesExistentes = getHabilidadeService().listarFuncionarios();
-
-		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, habilidadesAtividade));
-	}
-
-	public void carregaComboPrioridade() {
-		setComboPrioridade(getCombosService().carregarComboPrioridades());
-	}
-
-	public void carregaComboProjeto() {
-		setComboProjeto(getCombosService().carregaComboProjeto());
 	}
 
 	public void carregaComboStatus() {
@@ -96,14 +77,6 @@ public class ProjetoIncBean {
 	public List<SelectItem> getComboStatus() {
 		return this.comboStatus;
 	}	
-
-	public FuncionarioService getHabilidadeService() {
-		return habilidadeService;
-	}
-
-	public void setHabilidadeService(FuncionarioService habilidadeService) {
-		this.habilidadeService = habilidadeService;
-	}
 
 	public DualListModel<Habilidade> getHabilidades() {
 		return habilidades;

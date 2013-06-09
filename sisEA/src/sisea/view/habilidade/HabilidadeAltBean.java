@@ -2,11 +2,12 @@ package sisea.view.habilidade;
 
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.habilidade.FuncionarioService;
+import sisea.service.funcionario.FuncionarioService;
+import sisea.service.habilidade.HabilidadeService;
 
 public class HabilidadeAltBean {
 	private CombosService combosService = new CombosService();
-	private FuncionarioService habilidadeService = new FuncionarioService();
+	private HabilidadeService habilidadeService = new HabilidadeService();
 	
 	private Habilidade habilidade;
 	
@@ -40,11 +41,11 @@ public class HabilidadeAltBean {
 		this.combosService = combosService;
 	}
 
-	public FuncionarioService getHabilidadeService() {
+	public HabilidadeService getHabilidadeService() {
 		return habilidadeService;
 	}
 
-	public void setHabilidadeService(FuncionarioService habilidadeService) {
+	public void setHabilidadeService(HabilidadeService habilidadeService) {
 		this.habilidadeService = habilidadeService;
 	}
 
