@@ -4,8 +4,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_gerenciar_atividades}</h1>
-		<h:form id="atividadeForm">
+		<h1></h1>
+		<h:form id="funcionarioForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
 				<!-- PESQUISA -->
@@ -13,42 +13,30 @@
 					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
 						<h:panelGroup>
 							<p:outputLabel value="Nome: " />
-							<p:inputText value="#{atividadePesqBean.nome}" />
-						</h:panelGroup>
-						<h:panelGroup>
-							<p:outputLabel value="Prioridade: " styleClass="comboLabel"/>
-							<p:selectOneMenu value="#{atividadePesqBean.prioridadeSelecionada}">
-								<f:selectItems value="#{atividadePesqBean.comboPrioridade}" />
-							</p:selectOneMenu>
+							<p:inputText value="#{funcionarioPesqBean.nome}" />
 						</h:panelGroup>
 					</h:panelGrid>
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
-							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}" action="#{atividadePesqBean.botaoPesquisar}"
-								update="atividadeForm" />
+							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}" action="#{funcionarioPesqBean.botaoPesquisar}"
+								update="funcionarioForm" />
 						</h:panelGroup>
 					</h:panelGrid>
 				</h:panelGrid>
 
 				<h:panelGrid columns="1" width="100%">
-					<p:dataTable id="tabelaAtividades" var="item" selection="#{atividadePesqBean.atividadeSelecionada}" 
-						selectionMode="single" rowKey="#{item.idAtividade}" value="#{atividadePesqBean.atividades}"
+					<p:dataTable id="tabelaFuncionarios" var="item" selection="#{funcionarioPesqBean.funcionarioSelecionado}" 
+						selectionMode="single" rowKey="#{item.idFuncionario}" value="#{funcionarioPesqBean.funcionarios}"
 						paginator="true" rows="10" paginatorPosition="bottom" paginatorAlwaysVisible="false" 
 						emptyMessage="#{msgs.lbl_nenhum_registro}">
 						<f:facet name="header">
-							<h:outputText value="#{msgs.lbl_atividades}"></h:outputText>
+							<h:outputText value="#{msgs.lbl_funcionarios}"></h:outputText>
 						</f:facet>
-						<p:column headerText="#{msgs.lbl_prioridade}">
-							<h:outputText value="#{item.prioridade}"></h:outputText>
+						<p:column headerText="#{msgs.lbl_funcionario_nomecompleto}">
+							<h:outputText value="#{item.nome} #{item.sobrenome}"></h:outputText>
 						</p:column>
-						<p:column headerText="#{msgs.lbl_projeto}">
-							<h:outputText value="#{item.projeto.nome}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_nome}">
-							<h:outputText value="#{item.nome}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_funcionario}">
-							<h:outputText value="#{item.funcionario.nome}"></h:outputText>
+						<p:column headerText="#{msgs.lbl_funcionario_atividade}">
+							<h:outputText value="#{item.idAtividade}"></h:outputText>
 						</p:column>
 						<p:column headerText="#{msgs.lbl_status}">
 							<h:outputText value="#{item.status}"></h:outputText>
@@ -61,12 +49,12 @@
 				<h:panelGrid styleClass="gridBotao" columns="1">
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
-							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}" update="atividadeForm"
-								action="#{atividadePesqBean.botaoIncluir}"/>
+							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}" update="funcionarioForm"
+								action="#{funcionarioPesqBean.botaoIncluir}"/>
 							<p:commandButton id="btnAlterar" value="#{msgs.btn_alterar}"
-								update="atividadeForm" action="#{atividadePesqBean.botaoAlterar}"/>
+								update="funcionarioForm" action="#{funcionarioPesqBean.botaoAlterar}"/>
 							<p:commandButton id="btnExcluir" value="#{msgs.btn_excluir}"
-								update="atividadeForm" />
+								update="funcionarioForm" />
 						</h:panelGroup>
 					</h:panelGrid>
 				</h:panelGrid>

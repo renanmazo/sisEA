@@ -4,34 +4,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_atividade}</h1>
-		<h:form id="atividadeIncForm">
+		<h1>#{msgs.lbl_inclusao_funcionario}</h1>
+		<h:form id="funcionarioForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
 
 				<h:panelGrid columns="2" width="50%">
 
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_prioridade}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeIncBean.atividade.idPrioridade}">
-							<f:selectItems value="#{atividadeIncBean.comboPrioridade}" />
-						</p:selectOneMenu>
+						<p:outputLabel value="#{msgs.lbl_funcionario_nome}: " />
+						<p:inputText value="#{funcionarioIncBean.funcionario.nome}" />
 					</h:panelGroup>
-
+					
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_projeto}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeIncBean.atividade.projeto.idProjeto}">
-							<f:selectItems value="#{atividadeIncBean.comboProjeto}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_nome}: " />
-						<p:inputText value="#{atividadeIncBean.atividade.nome}" />
+						<p:outputLabel value="#{msgs.lbl_funcionario_sobrenome}: " />
+						<p:inputText value="#{funcionarioIncBean.sobrenome}" />
 					</h:panelGroup>
 
 					<h:panelGroup>

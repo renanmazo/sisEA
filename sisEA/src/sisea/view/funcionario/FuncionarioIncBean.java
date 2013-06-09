@@ -8,6 +8,7 @@ import javax.faces.model.SelectItem;
 import org.primefaces.model.DualListModel;
 
 import sisea.model.Atividade;
+import sisea.model.Funcionario;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
 import sisea.service.funcionario.FuncionarioService;
@@ -18,7 +19,7 @@ public class FuncionarioIncBean {
 	private FuncionarioService funcionarioService = new FuncionarioService();
 	private HabilidadeService habilidadeService = new HabilidadeService();
 
-	private Atividade atividade;
+	private Funcionario funcionario;
 	private List<SelectItem> comboPrioridade;
 	private List<SelectItem> comboProjeto;
 	private List<SelectItem> comboStatus;
@@ -26,17 +27,13 @@ public class FuncionarioIncBean {
 
 	public String iniciarPagina() {
 		inicializar();
-		carregaComboPrioridade();
-		carregaComboProjeto();
 		carregaComboStatus();
 		carregaPickListHabilidades();
-		return "atividadeInc.xhtml?faces-redirect=true";
+		return "IR_PARA_FUNCIONARIO_INC";
 	}
 
 	public void inicializar() {
-		setAtividade(new Atividade());
-		setComboPrioridade(new ArrayList<SelectItem>());
-		setComboProjeto(new ArrayList<SelectItem>());
+		setFuncionario(new Funcionario());
 		setComboStatus(new ArrayList<SelectItem>());
 	}
 	
@@ -44,7 +41,6 @@ public class FuncionarioIncBean {
 		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
 		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
 		habilidadesExistentes = getHabilidadeService().listarHabilidades();
-
 		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, habilidadesAtividade));
 	}
 
@@ -67,12 +63,12 @@ public class FuncionarioIncBean {
 	public void setCombosService(CombosService combosService) {
 		this.combosService = combosService;
 	}	
-	public Atividade getAtividade() {
-		return atividade;
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
-	public void setAtividade(Atividade atividade) {
-		this.atividade = atividade;
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public List<SelectItem> getComboPrioridade() {

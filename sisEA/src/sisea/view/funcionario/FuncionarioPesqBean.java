@@ -9,8 +9,8 @@ import sisea.service.combos.CombosService;
 import sisea.util.SiteUtil;
 
 public class FuncionarioPesqBean {
-	private FuncionarioIncBean funcionarioIncBean = (FuncionarioIncBean) SiteUtil.getBeanFromSession("funcionarioIncBean");
-	private FuncionarioAltBean funcionarioAltBean = (FuncionarioAltBean) SiteUtil.getBeanFromSession("funcionarioAltBean");
+	private FuncionarioIncBean funcionarioIncBean = new FuncionarioIncBean();
+	private FuncionarioAltBean funcionarioAltBean = new FuncionarioAltBean();
 	
 	private CombosService combosService = new CombosService();
 	private FuncionarioService funcionarioService = new FuncionarioService();

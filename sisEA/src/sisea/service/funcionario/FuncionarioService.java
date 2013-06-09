@@ -68,4 +68,33 @@ public class FuncionarioService {
 
 		return listaRetorno;
 	}
+	
+	public List<Funcionario> listarFuncionarios(){
+		String query = "SELECT * FROM tb_funcionario";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<Funcionario> listaRetorno = new ArrayList<Funcionario>();
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Funcionario funcionario = new Funcionario();
+				funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
+				funcionario.setNome(rs.getString("nome"));
+				funcionario.setSobrenome(rs.getString("sobrenome"));
+				funcionario.setStatus(rs.getString("status"));
+				funcionario.setHabilidades(habilidadeService.listarHabilidadesFuncionario(funcionario.getIdFuncionario()));
+				listaRetorno.add(funcionario);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(rs, conexao, ps);
+		}
+
+		return listaRetorno;
+	}
 }
