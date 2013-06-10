@@ -7,16 +7,13 @@ import javax.faces.model.SelectItem;
 
 import org.primefaces.model.DualListModel;
 
-import sisea.model.Atividade;
 import sisea.model.Funcionario;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
 
 public class FuncionarioIncBean {
 	private CombosService combosService = new CombosService();
-	private FuncionarioService funcionarioService = new FuncionarioService();
 	private HabilidadeService habilidadeService = new HabilidadeService();
 
 	private Funcionario funcionario;

@@ -9,8 +9,8 @@ import sisea.service.combos.CombosService;
 import sisea.util.SiteUtil;
 
 public class ProjetoPesqBean {
-	private ProjetoIncBean projetoIncBean = new ProjetoIncBean();//(ProjetoIncBean) SiteUtil.getBeanFromSession("projetoIncBean");
-	private ProjetoAltBean projetoAltBean = new ProjetoAltBean();//(ProjetoAltBean) SiteUtil.getBeanFromSession("projetoAltBean");
+	private ProjetoIncBean projetoIncBean = (ProjetoIncBean) SiteUtil.getBeanFromSession("projetoIncBean");
+	private ProjetoAltBean projetoAltBean = (ProjetoAltBean) SiteUtil.getBeanFromSession("projetoAltBean");
 	
 	private CombosService combosService = new CombosService();
 	private ProjetoService projetoService = new ProjetoService();

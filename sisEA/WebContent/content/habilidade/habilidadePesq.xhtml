@@ -19,7 +19,7 @@
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
 							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}" action="#{habilidadePesqBean.botaoPesquisar}"
-								update="atividadeForm" />
+								update="habilidadeForm" />
 						</h:panelGroup>
 					</h:panelGrid>
 				</h:panelGrid>
@@ -32,20 +32,8 @@
 						<f:facet name="header">
 							<h:outputText value="#{msgs.lbl_habilidades}"></h:outputText>
 						</f:facet>
-						<p:column headerText="#{msgs.lbl_prioridade}">
-							<h:outputText value="#{item.prioridade}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_projeto}">
-							<h:outputText value="#{item.projeto.nome}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_nome}">
-							<h:outputText value="#{item.nome}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_funcionario}">
-							<h:outputText value="#{item.funcionario.nome}"></h:outputText>
-						</p:column>
-						<p:column headerText="#{msgs.lbl_status}">
-							<h:outputText value="#{item.status}"></h:outputText>
+						<p:column headerText="#{msgs.lbl_descricao}">
+							<h:outputText value="#{item.descricao}"></h:outputText>
 						</p:column>
 					</p:dataTable>
 				</h:panelGrid>

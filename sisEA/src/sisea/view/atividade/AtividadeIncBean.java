@@ -3,6 +3,7 @@ package sisea.view.atividade;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.model.DualListModel;
@@ -11,13 +12,12 @@ import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.atividade.AtividadeService;
 import sisea.service.combos.CombosService;
-import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
 
 public class AtividadeIncBean {
 	private CombosService combosService = new CombosService();
-	private AtividadeService atividadeService = new AtividadeService();
 	private HabilidadeService habilidadeService = new HabilidadeService();
+	private AtividadeService atividadeService = new AtividadeService();
 
 	private Atividade atividade;
 	private List<SelectItem> comboPrioridade;
@@ -45,7 +45,6 @@ public class AtividadeIncBean {
 		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
 		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
 		habilidadesExistentes = getHabilidadeService().listarHabilidades();
-
 		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, habilidadesAtividade));
 	}
 
@@ -59,6 +58,16 @@ public class AtividadeIncBean {
 
 	public void carregaComboStatus() {
 		setComboStatus(getCombosService().carregaComboStatus());
+	}
+	
+	public void botaoConfirmar(ActionEvent e){
+		if(getAtividadeService().listarAtividadesPorNome(getAtividade().getNome()) != null){
+			getAtividadeService().incluirAtividade(getAtividade());
+			getAtividade().setIdAtividade(Integer.parseInt(getAtividadeService().listarAtividadesPorNome(getAtividade().getNome())));
+			for(Habilidade habilidade : getAtividade().getHabilidades()){
+				getAtividadeService().incluirHabilidadeAtividade(String.valueOf(getAtividade().getIdAtividade()), String.valueOf(habilidade.getIdHabilidade()));
+			}
+		}
 	}
 
 	public CombosService getCombosService() {
@@ -114,6 +123,14 @@ public class AtividadeIncBean {
 
 	public void setHabilidades(DualListModel<Habilidade> habilidades) {
 		this.habilidades = habilidades;
+	}
+
+	public AtividadeService getAtividadeService() {
+		return atividadeService;
+	}
+
+	public void setAtividadeService(AtividadeService atividadeService) {
+		this.atividadeService = atividadeService;
 	}
 
 }

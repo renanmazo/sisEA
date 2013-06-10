@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_funcionario}</h1>
+		<h1>#{msgs.lbl_inclusao_funcionarios}</h1>
 		<h:form id="funcionarioForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
@@ -12,13 +12,13 @@
 				<h:panelGrid columns="2" width="50%">
 
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_funcionario_nome}: " />
+						<p:outputLabel value="#{msgs.lbl_nome}: " />
 						<p:inputText value="#{funcionarioIncBean.funcionario.nome}" />
 					</h:panelGroup>
 					
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_funcionario_sobrenome}: " />
-						<p:inputText value="#{funcionarioIncBean.sobrenome}" />
+						<p:outputLabel value="#{msgs.lbl_sobrenome}: " />
+						<p:inputText value="#{funcionarioIncBean.funcionario.sobrenome}" />
 					</h:panelGroup>
 
 					<h:panelGroup>
@@ -48,7 +48,7 @@
 				<h:panelGrid styleClass="gridBotaoDireita">
 					<h:panelGroup>
 						<p:commandButton id="btnConfirmar" value="#{msgs.btn_confirmar}"
-							update="atividadeIncForm" />
+							update="funcionarioForm" />
 					</h:panelGroup>
 				</h:panelGrid>
 			</h:panelGrid>

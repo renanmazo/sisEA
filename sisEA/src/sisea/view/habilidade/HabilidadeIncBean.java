@@ -10,7 +10,6 @@ import org.primefaces.model.DualListModel;
 import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
 
 public class HabilidadeIncBean {

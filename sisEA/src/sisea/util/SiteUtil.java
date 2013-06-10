@@ -3,7 +3,6 @@ package sisea.util;
 import javax.el.ELContext;
 import javax.el.ELResolver;
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
 
 public final class SiteUtil {
 

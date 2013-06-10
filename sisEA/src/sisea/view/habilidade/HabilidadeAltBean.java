@@ -2,7 +2,6 @@ package sisea.view.habilidade;
 
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
 
 public class HabilidadeAltBean {

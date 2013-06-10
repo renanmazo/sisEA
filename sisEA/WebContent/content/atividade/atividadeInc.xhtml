@@ -61,7 +61,7 @@
 				<h:panelGrid styleClass="gridBotaoDireita">
 					<h:panelGroup>
 						<p:commandButton id="btnConfirmar" value="#{msgs.btn_confirmar}"
-							update="atividadeIncForm" />
+							ajax="false" actionListener="#{atividadeIncBean.botaoConfirmar}"/>
 					</h:panelGroup>
 				</h:panelGrid>
 			</h:panelGrid>

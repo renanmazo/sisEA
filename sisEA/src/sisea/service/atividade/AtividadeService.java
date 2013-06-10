@@ -92,4 +92,58 @@ public class AtividadeService {
 		}
 		return listaRetorno;
 	}
+	
+	public void incluirAtividade(Atividade atividade){
+		String query = "INSERT INTO tb_atividade (nome, descricao, prioridade, idProjeto, status) VALUES (?, ?, ?, ?, ?)";
+		PreparedStatement ps = null;
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			ps.setString(1, atividade.getNome());
+			ps.setString(2, atividade.getDescricao());
+			ps.setString(3, atividade.getIdPrioridade());
+			ps.setString(4, atividade.getProjeto().getIdProjeto());
+			ps.setString(5, atividade.getIdStatus());
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(conexao, ps);
+		}
+	}
+	
+	public String listarAtividadesPorNome(String nome) {
+		String query = "SELECT * FROM tb_atividade WHERE nome = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		String retorno = "";
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			ps.setString(1, nome);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				retorno = String.valueOf(rs.getInt("idAtividade"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(rs, conexao, ps);
+		}
+		return retorno;
+	}
+	
+	public void incluirHabilidadeAtividade(String idAtividade, String idHabilidade){
+		String query = "INSERT INTO rel_atividadehabilidade (idAtividade, idHabilidade) VALUES (?, ?)";
+		PreparedStatement ps = null;
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			ps.setString(1, idAtividade);
+			ps.setString(2, idHabilidade);
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(conexao, ps);
+		}
+	}
 }

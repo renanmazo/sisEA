@@ -7,9 +7,7 @@ import javax.faces.model.SelectItem;
 
 import sisea.model.Atividade;
 import sisea.service.atividade.AtividadeService;
-import sisea.service.projeto.ProjetoService;
 import sisea.service.combos.CombosService;
-import sisea.service.habilidade.HabilidadeService;
 import sisea.util.SiteUtil;
 
 public class AtividadePesqBean {
@@ -18,7 +16,6 @@ public class AtividadePesqBean {
 	
 	private CombosService combosService = new CombosService();
 	private AtividadeService atividadeService = new AtividadeService();
-	private HabilidadeService habilidadeService = new HabilidadeService();
 	
 	
 	private List<Atividade> atividades;

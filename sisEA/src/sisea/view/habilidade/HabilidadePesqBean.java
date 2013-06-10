@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sisea.model.Habilidade;
-import sisea.service.funcionario.FuncionarioService;
 import sisea.service.habilidade.HabilidadeService;
 import sisea.service.combos.CombosService;
 import sisea.util.SiteUtil;
@@ -15,7 +14,6 @@ public class HabilidadePesqBean {
 	
 	private CombosService combosService = new CombosService();
 	private HabilidadeService habilidadeService = new HabilidadeService();
-	
 	
 	private List<Habilidade> habilidades;
 	private Habilidade habilidadeSelecionada;
@@ -60,14 +58,6 @@ public class HabilidadePesqBean {
 		this.combosService = combosService;
 	}
 
-	public List<Habilidade> getHabilidade() {
-		return habilidades;
-	}
-
-	public void setHabilidades(List<Habilidade> habilidades) {
-		this.habilidades = habilidades;
-	}
-
 	public Habilidade getHabilidadeSelecionada() {
 		return habilidadeSelecionada;
 	}
@@ -106,6 +96,14 @@ public class HabilidadePesqBean {
 
 	public void setHabilidadeAltBean(HabilidadeAltBean habilidadeAltBean) {
 		this.habilidadeAltBean = habilidadeAltBean;
+	}
+
+	public List<Habilidade> getHabilidades() {
+		return habilidades;
+	}
+
+	public void setHabilidades(List<Habilidade> habilidades) {
+		this.habilidades = habilidades;
 	}
 
 }

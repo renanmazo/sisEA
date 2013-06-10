@@ -10,13 +10,9 @@ import org.primefaces.model.DualListModel;
 import sisea.model.Atividade;
 import sisea.model.Habilidade;
 import sisea.service.combos.CombosService;
-import sisea.service.funcionario.FuncionarioService;
-import sisea.service.habilidade.HabilidadeService;
-import sisea.service.projeto.ProjetoService;
 
 public class ProjetoIncBean {
 	private CombosService combosService = new CombosService();
-	private ProjetoService projetoService = new ProjetoService();
 
 	private Atividade atividade;
 	private List<SelectItem> comboPrioridade;
