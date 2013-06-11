@@ -4,56 +4,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_atividade}</h1>
-		<h:form id="atividadeIncForm">
+		<h1>#{msgs.lbl_habilidade_inc_titulo}</h1>
+		<h:form id="habilidadeIncForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
-
-				<h:panelGrid columns="2" width="50%">
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_prioridade}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeIncBean.atividade.idPrioridade}">
-							<f:selectItems value="#{atividadeIncBean.comboPrioridade}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_projeto}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeIncBean.atividade.projeto.idProjeto}">
-							<f:selectItems value="#{atividadeIncBean.comboProjeto}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_nome}: " />
-						<p:inputText value="#{atividadeIncBean.atividade.nome}" />
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_status}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu value="#{atividadeIncBean.atividade.idStatus}">
-							<f:selectItems value="#{atividadeIncBean.comboStatus}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-				</h:panelGrid>
-
+			
 				<h:panelGroup>
-					<p:outputLabel value="#{msgs.lbl_descricao}: "
-						styleClass="comboLabel" />
-					<p:inputTextarea rows="3" cols="50"
-						value="#{atividadeIncBean.atividade.descricao}" />
+					<p:outputLabel value="#{msgs.lbl_descricao}: "/>
+					<p:inputText value="" />
 				</h:panelGroup>
 			</h:panelGrid>
-
-			<p:pickList id="pickList" value="#{atividadeIncBean.habilidades}"
-				var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
 
 			<p:separator id="separator" />
 
@@ -61,7 +21,7 @@
 				<h:panelGrid styleClass="gridBotaoDireita">
 					<h:panelGroup>
 						<p:commandButton id="btnConfirmar" value="#{msgs.btn_confirmar}"
-							update="atividadeIncForm" />
+							update="habilidadeIncForm" />
 					</h:panelGroup>
 				</h:panelGrid>
 			</h:panelGrid>
