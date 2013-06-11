@@ -9,7 +9,7 @@
 
 			<h:panelGrid styleClass="gridPrincipal">
 
-				<h:panelGrid columns="1" width="50%">
+				<h:panelGrid columns="2" width="50%">
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
 						<p:inputText value="" />
@@ -19,6 +19,13 @@
 
 				<h:panelGroup>
 					<p:outputLabel value="#{msgs.lbl_descricao}: "
+						styleClass="comboLabel" />
+					<p:inputTextarea rows="3" cols="50"
+						value="" />
+				</h:panelGroup>
+				
+				<h:panelGroup>
+					<p:outputLabel value="#{msgs.lbl_cliente}: "
 						styleClass="comboLabel" />
 					<p:inputTextarea rows="3" cols="50"
 						value="" />
