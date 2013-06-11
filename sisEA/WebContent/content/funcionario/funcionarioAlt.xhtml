@@ -12,50 +12,25 @@
 				<h:panelGrid columns="2" width="50%">
 
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_prioridade}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeAltBean.atividade.idPrioridade}">
-							<f:selectItems value="#{atividadeAltBean.comboPrioridade}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_projeto}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeAltBean.atividade.projeto.idProjeto}">
-							<f:selectItems value="#{atividadeAltBean.comboProjeto}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
-						<p:inputText value="#{atividadeAltBean.atividade.nome}" />
+						<p:inputText value="" />
 					</h:panelGroup>
-
+					
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_status}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu value="#{atividadeAltBean.atividade.idStatus}">
-							<f:selectItems value="#{atividadeAltBean.comboStatus}" />
-						</p:selectOneMenu>
+						<p:outputLabel value="#{msgs.lbl_sobrenome}: " />
+						<p:inputText value="" />
 					</h:panelGroup>
 
 				</h:panelGrid>
 
-				<h:panelGroup>
-					<p:outputLabel value="#{msgs.lbl_descricao}: "
-						styleClass="comboLabel" />
-					<p:inputTextarea rows="3" cols="50"
-						value="#{atividadeAltBean.atividade.descricao}" />
-				</h:panelGroup>
 			</h:panelGrid>
 			
-			<p:pickList id="pickList" value="#{atividadeAltBean.habilidades}"
-				var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
-
-			<p:separator id="separator" />
+			<p:panelGrid columns="1">
+				<p:pickList id="pickList" value="#{funcionarioAltBean.habilidades}"
+					var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
+	
+				<p:separator id="separator" />
+			</p:panelGrid>
 
 			<h:panelGrid styleClass="gridBotao" columns="1">
 				<h:panelGrid styleClass="gridBotaoDireita">
