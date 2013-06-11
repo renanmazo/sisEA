@@ -15,7 +15,6 @@ public class ProjetoPesqBean {
 	private CombosService combosService = new CombosService();
 	private ProjetoService projetoService = new ProjetoService();
 	
-	
 	private List<Projeto> projetos;
 	private Projeto projetoSelecionado;
 	

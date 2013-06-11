@@ -4,22 +4,23 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_gerenciar_funcionarios}</h1>
+		
 		<h:form id="funcionarioForm">
-
+		<h1>#{msgs.lbl_gerenciar_funcionarios}</h1>
+		
 			<h:panelGrid styleClass="gridPrincipal">
 				<!-- PESQUISA -->
 				<h:panelGrid columns="2" width="478" styleClass="boxPesquisa">
 					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
 						<h:panelGroup>
 							<p:outputLabel value="Nome: " />
-							<p:inputText value="" />
+							<p:inputText value="#{funcionarioPesqBean.nome}" />
 						</h:panelGroup>
 					</h:panelGrid>
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
 							<p:commandButton id="btnPesquisar" value="#{msgs.btn_pesquisar}" action="#{funcionarioPesqBean.botaoPesquisar}"
-								update="funcionarioForm" />
+								update="funcionarioForm" ajax="false" />
 						</h:panelGroup>
 					</h:panelGrid>
 					
@@ -37,7 +38,7 @@
 							<h:outputText value="#{item.nome} #{item.sobrenome}"></h:outputText>
 						</p:column>
 						<p:column headerText="#{msgs.lbl_funcionario_tabela_atividade}">
-							<h:outputText value=""></h:outputText>
+							<h:outputText value="#{item.atividade.nome}"></h:outputText>
 						</p:column>
 						<p:column headerText="#{msgs.lbl_status}">
 							<h:outputText value="#{item.status}"></h:outputText>

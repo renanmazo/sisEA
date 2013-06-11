@@ -4,9 +4,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_atividade}</h1>
+		
 		<h:form id="atividadeIncForm">
-
+		<h1>#{msgs.lbl_inclusao_atividade}</h1>
+		
 			<h:panelGrid styleClass="gridPrincipal">
 
 				<h:panelGrid columns="2" width="50%">
@@ -56,7 +57,13 @@
 
 			<p:separator id="separator" />
 
-			<h:panelGrid styleClass="gridBotao" columns="1">
+			<h:panelGrid styleClass="gridBotao" columns="2">
+				<h:panelGrid styleClass="gridBotaoEsquerda">
+					<h:panelGroup>
+						<p:commandButton id="btnVoltar" value="#{msgs.btn_voltar}"
+							ajax="false" actionListener="#"/>
+					</h:panelGroup>
+				</h:panelGrid>
 				<h:panelGrid styleClass="gridBotaoDireita">
 					<h:panelGroup>
 						<p:commandButton id="btnConfirmar" value="#{msgs.btn_confirmar}"

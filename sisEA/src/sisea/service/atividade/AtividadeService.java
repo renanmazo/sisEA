@@ -16,10 +16,12 @@ import sisea.util.SiteUtil;
 public class AtividadeService {
 	
 	private Connection conexao;
-	private FuncionarioService funcionarioService= new FuncionarioService();
-	private HabilidadeService habilidadeService= new HabilidadeService();
+	private FuncionarioService funcionarioService;
+	private HabilidadeService habilidadeService;
 	
 	public List<Atividade> listarAtividades() {
+		funcionarioService= new FuncionarioService();
+		habilidadeService= new HabilidadeService();
 		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_atividade t JOIN tb_projeto p ON t.idProjeto = p.idProjeto ORDER BY t.idAtividade";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -60,6 +62,7 @@ public class AtividadeService {
 	}
 
 	public List<Atividade> listarAtividadesNovas() {
+		habilidadeService= new HabilidadeService();
 		String query = "SELECT *, p.nome AS nomeProjeto FROM tb_atividade t JOIN tb_projeto p ON t.idProjeto = p.idProjeto WHERE status = 'NOVA' ORDER BY t.idAtividade";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -145,5 +148,35 @@ public class AtividadeService {
 		} finally {
 			Conexao.fecharConexoes(conexao, ps);
 		}
+	}
+	
+	public Atividade listarAtividadePorId(int idAtividade) {
+		String query = "SELECT * FROM tb_atividade WHERE idAtividade = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Atividade atividade = new Atividade();
+		try {
+			conexao = new Conexao().getConexao();
+			ps = conexao.prepareStatement(query);
+			ps.setInt(1, idAtividade);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				atividade.setIdAtividade(rs.getInt("idAtividade"));
+				atividade.setNome(rs.getString("nome"));
+				atividade.setDescricao(rs.getString("descricao"));
+				atividade.setIdPrioridade(rs.getString("prioridade"));
+				atividade.setPrioridade(SiteUtil.prioridadeLiteral(atividade.getIdPrioridade()));
+				atividade.setIdStatus(rs.getString("status"));
+				atividade.setStatus(SiteUtil.statusLiteral(atividade.getIdStatus()));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Conexao.fecharConexoes(rs, conexao, ps);
+		}
+
+		return atividade;
 	}
 }

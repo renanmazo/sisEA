@@ -12,33 +12,44 @@
 				<h:panelGrid columns="2" width="50%">
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
-						<p:inputText value="" />
+						<p:inputText value="#{funcionarioAltBean.funcionario.nome}" />
 					</h:panelGroup>
-					
+
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_sobrenome}: " />
-						<p:inputText value="" />
+						<p:inputText value="#{funcionarioAltBean.funcionario.sobrenome}" />
 					</h:panelGroup>
-					
-					<p:selectOneMenu
-							value="#{funcionarioIncBean.funcionario.idAtividade}">
-							<f:selectItems value="#{funcionarioIncBean.comboAtividade}" />
-					</p:selectOneMenu>
-					
-					<p:selectOneMenu
-							value="#{funcionarioIncBean.funcionario.status}">
-							<f:selectItems value="#{funcionarioIncBean.comboStatus}" />
-					</p:selectOneMenu>
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_atividade}: "
+							styleClass="comboLabel" />
+						<p:selectOneMenu
+							value="#{funcionarioAltBean.funcionario.atividade.idAtividade}">
+							<f:selectItem itemValue="0" itemLabel="Selecione" />
+							<f:selectItem itemValue="1" itemLabel="XPTO23" />
+							<f:selectItem itemValue="2" itemLabel="HUYB54" />
+							<f:selectItem itemValue="3" itemLabel="UTRI12" />
+						</p:selectOneMenu>
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<p:outputLabel value="#{msgs.lbl_status}: "
+							styleClass="comboLabel" />
+						<p:selectOneMenu value="#{funcionarioAltBean.funcionario.status}">
+							<f:selectItem itemValue="0" itemLabel="Selecione" />
+							<f:selectItem itemValue="LIVRE" itemLabel="Livre" />
+							<f:selectItem itemValue="ALOCADO" itemLabel="Alocado" />
+						</p:selectOneMenu>
+					</h:panelGroup>
 				</h:panelGrid>
 
 			</h:panelGrid>
-			
-			<p:panelGrid columns="1">
-				<p:pickList id="pickList" value="#{funcionarioAltBean.funcionario}"
-					var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
-	
-				<p:separator id="separator" />
-			</p:panelGrid>
+
+			<p:pickList id="pickList" value="#{funcionarioAltBean.habilidades}"
+				var="item" itemLabel="#{item.descricao}"
+				itemValue="#{item.idHabilidade}" />
+
+			<p:separator id="separator" />
 
 			<h:panelGrid styleClass="gridBotao" columns="1">
 				<h:panelGrid styleClass="gridBotaoDireita">

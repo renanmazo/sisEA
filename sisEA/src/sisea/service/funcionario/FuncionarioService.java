@@ -8,13 +8,16 @@ import java.util.List;
 
 import sisea.conexao.Conexao;
 
+import sisea.model.Atividade;
 import sisea.model.Funcionario;
+import sisea.service.atividade.AtividadeService;
 import sisea.service.habilidade.HabilidadeService;
 
 public class FuncionarioService {
 
 	private Connection conexao;
-	private HabilidadeService habilidadeService= new HabilidadeService();
+	private HabilidadeService habilidadeService;
+	private AtividadeService atividadeService;
 
 	public Funcionario listarFuncionario(int idFuncionario) {
 		String query = "SELECT * FROM tb_funcionario WHERE idFuncionario = ?";
@@ -41,6 +44,7 @@ public class FuncionarioService {
 	}
 
 	public List<Funcionario> buscarFuncionarioLivre() {
+		habilidadeService = new HabilidadeService();
 		String query = "SELECT * FROM tb_funcionario WHERE status = 'LIVRE'";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -70,6 +74,8 @@ public class FuncionarioService {
 	}
 	
 	public List<Funcionario> listarFuncionarios(){
+		habilidadeService = new HabilidadeService();
+		atividadeService = new AtividadeService();
 		String query = "SELECT * FROM tb_funcionario";
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -80,10 +86,13 @@ public class FuncionarioService {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Funcionario funcionario = new Funcionario();
+				Atividade atividade = new Atividade();
 				funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
 				funcionario.setNome(rs.getString("nome"));
 				funcionario.setSobrenome(rs.getString("sobrenome"));
 				funcionario.setStatus(rs.getString("status"));
+				atividade = atividadeService.listarAtividadePorId(rs.getInt("idAtividade"));
+				funcionario.setAtividade(atividade);
 				funcionario.setHabilidades(habilidadeService.listarHabilidadesFuncionario(funcionario.getIdFuncionario()));
 				listaRetorno.add(funcionario);
 
