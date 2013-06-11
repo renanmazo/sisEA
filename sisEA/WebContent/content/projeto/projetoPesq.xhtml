@@ -4,16 +4,20 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>Gerenciar projetos</h1>
+		<h1>#{msgs.lbl_projeto_pesq_titulo}</h1>
 		<h:form id="projetoForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
 				<!-- PESQUISA -->
-				<h:panelGrid columns="2" width="478" styleClass="boxPesquisa">
+				<h:panelGrid columns="2" width="550" styleClass="boxPesquisa">
 					<h:panelGrid columns="2" cellspacing="2" cellpadding="2">
 						<h:panelGroup>
 							<p:outputLabel value="Nome: " />
-							<p:inputText value="#{projetoPesqBean.nome}" />
+							<p:inputText value="" />
+						</h:panelGroup>
+						<h:panelGroup>
+							<p:outputLabel value="Cliente: " />
+							<p:inputText value="" />
 						</h:panelGroup>
 					</h:panelGrid>
 					<h:panelGrid styleClass="gridBotaoDireita">
@@ -30,10 +34,13 @@
 						paginator="true" rows="10" paginatorPosition="bottom" paginatorAlwaysVisible="false" 
 						emptyMessage="#{msgs.lbl_nenhum_registro}">
 						<f:facet name="header">
-							<h:outputText value="#{msgs.lbl_atividades}"></h:outputText>
+							<h:outputText value="#{msgs.lbl_projeto_tabela}"></h:outputText>
 						</f:facet>
-						<p:column headerText="#{msgs.lbl_projeto}">
+						<p:column headerText="#{msgs.lbl_projeto_tabela_nome}">
 							<h:outputText value="#{item.nome}"></h:outputText>
+						</p:column>
+						<p:column headerText="#{msgs.lbl_projeto_tabela_cliente}">
+							<h:outputText value="#{item.cliente}"></h:outputText>
 						</p:column>
 					</p:dataTable>
 				</h:panelGrid>
@@ -44,7 +51,7 @@
 					<h:panelGrid styleClass="gridBotaoDireita">
 						<h:panelGroup>
 							<p:commandButton id="btnIncluir" value="#{msgs.btn_incluir}" update="projetoForm"
-								action="#{projetoPesqBean.botaoIncluir}"/>
+								action="#{ProjetoIncBean.xhtml}"/>
 							<p:commandButton id="btnAlterar" value="#{msgs.btn_alterar}"
 								update="projetoForm" action="#{projetoPesqBean.botaoAlterar}"/>
 							<p:commandButton id="btnExcluir" value="#{msgs.btn_excluir}"

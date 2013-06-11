@@ -4,42 +4,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_atividade}</h1>
+		<h1>#{msgs.lbl_projeto_alt_titulo}</h1>
 		<h:form id="atividadeAltForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
 
-				<h:panelGrid columns="2" width="50%">
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_prioridade}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeAltBean.atividade.idPrioridade}">
-							<f:selectItems value="#{atividadeAltBean.comboPrioridade}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_projeto}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeAltBean.atividade.projeto.idProjeto}">
-							<f:selectItems value="#{atividadeAltBean.comboProjeto}" />
-						</p:selectOneMenu>
-					</h:panelGroup>
-
+				<h:panelGrid columns="1" width="50%">
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
-						<p:inputText value="#{atividadeAltBean.atividade.nome}" />
-					</h:panelGroup>
-
-					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_status}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu value="#{atividadeAltBean.atividade.idStatus}">
-							<f:selectItems value="#{atividadeAltBean.comboStatus}" />
-						</p:selectOneMenu>
+						<p:inputText value="" />
 					</h:panelGroup>
 
 				</h:panelGrid>
@@ -48,7 +21,7 @@
 					<p:outputLabel value="#{msgs.lbl_descricao}: "
 						styleClass="comboLabel" />
 					<p:inputTextarea rows="3" cols="50"
-						value="#{atividadeAltBean.atividade.descricao}" />
+						value="" />
 				</h:panelGroup>
 			</h:panelGrid>
 			
