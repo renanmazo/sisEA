@@ -20,13 +20,22 @@
 						<p:outputLabel value="#{msgs.lbl_sobrenome}: " />
 						<p:inputText value="" />
 					</h:panelGroup>
-
+					
+					<p:selectOneMenu
+							value="#{funcionarioIncBean.funcionario.idAtividade}">
+							<f:selectItems value="#{funcionarioIncBean.comboAtividade}" />
+					</p:selectOneMenu>
+					
+					<p:selectOneMenu
+							value="#{funcionarioIncBean.funcionario.status}">
+							<f:selectItems value="#{funcionarioIncBean.comboStatus}" />
+					</p:selectOneMenu>
 				</h:panelGrid>
 
 			</h:panelGrid>
 			
 			<p:panelGrid columns="1">
-				<p:pickList id="pickList" value="#{funcionarioAltBean.habilidades}"
+				<p:pickList id="pickList" value="#{funcionarioAltBean.funcionario.habilidades}"
 					var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
 	
 				<p:separator id="separator" />

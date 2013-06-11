@@ -4,13 +4,12 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 	<ui:define name="corpo">
-		<h1>#{msgs.lbl_inclusao_atividade}</h1>
+		<h1>#{msgs.lbl_edicao_funcionarios}</h1>
 		<h:form id="funcionarioAltForm">
 
 			<h:panelGrid styleClass="gridPrincipal">
 
 				<h:panelGrid columns="2" width="50%">
-
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_nome}: " />
 						<p:inputText value="" />
@@ -20,13 +19,22 @@
 						<p:outputLabel value="#{msgs.lbl_sobrenome}: " />
 						<p:inputText value="" />
 					</h:panelGroup>
-
+					
+					<p:selectOneMenu
+							value="#{funcionarioIncBean.funcionario.idAtividade}">
+							<f:selectItems value="#{funcionarioIncBean.comboAtividade}" />
+					</p:selectOneMenu>
+					
+					<p:selectOneMenu
+							value="#{funcionarioIncBean.funcionario.status}">
+							<f:selectItems value="#{funcionarioIncBean.comboStatus}" />
+					</p:selectOneMenu>
 				</h:panelGrid>
 
 			</h:panelGrid>
 			
 			<p:panelGrid columns="1">
-				<p:pickList id="pickList" value="#{funcionarioAltBean.habilidades}"
+				<p:pickList id="pickList" value="#{funcionarioAltBean.funcionario}"
 					var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
 	
 				<p:separator id="separator" />
@@ -36,7 +44,7 @@
 				<h:panelGrid styleClass="gridBotaoDireita">
 					<h:panelGroup>
 						<p:commandButton id="btnConfirmar" value="#{msgs.btn_confirmar}"
-							update="atividadeAltForm" />
+							update="funcionarioAltForm" />
 					</h:panelGroup>
 				</h:panelGrid>
 			</h:panelGrid>
