@@ -1,5 +1,6 @@
 package sisea.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Atividade {
@@ -12,8 +13,8 @@ public class Atividade {
 	private String idPrioridade;
 	private String prioridade;
 	private Funcionario funcionario;
-	private Projeto projeto;
-	private List<Habilidade> habilidades;
+	private Projeto projeto = new Projeto();
+	private List<Habilidade> habilidades = new ArrayList<Habilidade>();
 	
 	public int getIdAtividade() {
 		return idAtividade;

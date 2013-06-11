@@ -39,13 +39,14 @@ public class AtividadeIncBean {
 		setComboPrioridade(new ArrayList<SelectItem>());
 		setComboProjeto(new ArrayList<SelectItem>());
 		setComboStatus(new ArrayList<SelectItem>());
+		getAtividade().setIdStatus("NOVA");
 	}
 	
 	public void carregaPickListHabilidades(){
 		List<Habilidade> habilidadesExistentes = new ArrayList<Habilidade>();
-		List<Habilidade> habilidadesAtividade = new ArrayList<Habilidade>();
 		habilidadesExistentes = getHabilidadeService().listarHabilidades();
-		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, habilidadesAtividade));
+		
+		setHabilidades(new DualListModel<Habilidade>(habilidadesExistentes, getAtividade().getHabilidades()));
 	}
 
 	public void carregaComboPrioridade() {
@@ -61,7 +62,8 @@ public class AtividadeIncBean {
 	}
 	
 	public void botaoConfirmar(ActionEvent e){
-		if(getAtividadeService().listarAtividadesPorNome(getAtividade().getNome()) != null){
+		String idAtividade = getAtividadeService().listarAtividadesPorNome(getAtividade().getNome());
+		if(idAtividade != null || idAtividade != ""){
 			getAtividadeService().incluirAtividade(getAtividade());
 			getAtividade().setIdAtividade(Integer.parseInt(getAtividadeService().listarAtividadesPorNome(getAtividade().getNome())));
 			for(Habilidade habilidade : getAtividade().getHabilidades()){

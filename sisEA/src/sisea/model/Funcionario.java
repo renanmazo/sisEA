@@ -8,7 +8,7 @@ public class Funcionario {
 	private String nome;
 	private String sobrenome;
 	private String status;
-	private Atividade atividade;
+	private Atividade atividade = new Atividade();
 	private List<Habilidade> habilidades = new ArrayList<Habilidade>();
 	
 	public int getIdFuncionario() {

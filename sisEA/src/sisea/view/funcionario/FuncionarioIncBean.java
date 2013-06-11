@@ -32,6 +32,8 @@ public class FuncionarioIncBean {
 	public void inicializar() {
 		setFuncionario(new Funcionario());
 		setComboStatus(new ArrayList<SelectItem>());
+		setComboProjeto(new ArrayList<SelectItem>());
+		setComboPrioridade(new ArrayList<SelectItem>());
 	}
 	
 	public void carregaPickListHabilidades(){

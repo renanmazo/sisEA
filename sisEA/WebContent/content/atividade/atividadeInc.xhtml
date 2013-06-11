@@ -23,8 +23,7 @@
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_projeto}: "
 							styleClass="comboLabel" />
-						<p:selectOneMenu
-							value="#{atividadeIncBean.atividade.projeto.idProjeto}">
+						<p:selectOneMenu value="#{atividadeIncBean.atividade.projeto.idProjeto}">
 							<f:selectItems value="#{atividadeIncBean.comboProjeto}" />
 						</p:selectOneMenu>
 					</h:panelGroup>
@@ -37,7 +36,7 @@
 					<h:panelGroup>
 						<p:outputLabel value="#{msgs.lbl_status}: "
 							styleClass="comboLabel" />
-						<p:selectOneMenu value="#{atividadeIncBean.atividade.idStatus}">
+						<p:selectOneMenu disabled="true" value="#{atividadeIncBean.atividade.idStatus}">
 							<f:selectItems value="#{atividadeIncBean.comboStatus}" />
 						</p:selectOneMenu>
 					</h:panelGroup>

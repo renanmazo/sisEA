@@ -22,9 +22,8 @@
 					</h:panelGroup>
 
 					<h:panelGroup>
-						<p:outputLabel value="#{msgs.lbl_status}: "
-							styleClass="comboLabel" />
-						<p:selectOneMenu value="#{atividadeIncBean.atividade.idStatus}">
+						<p:outputLabel value="#{msgs.lbl_status}: " styleClass="comboLabel" />
+						<p:selectOneMenu value="#{funcionarioIncBean.funcionario.status}">
 							<f:selectItems value="#{atividadeIncBean.comboStatus}" />
 						</p:selectOneMenu>
 					</h:panelGroup>
@@ -38,9 +37,6 @@
 						value="#{atividadeIncBean.atividade.descricao}" />
 				</h:panelGroup>
 			</h:panelGrid>
-
-			<p:pickList id="pickList" value="#{atividadeIncBean.habilidades}"
-				var="item" itemLabel="#{item.descricao}" itemValue="#{item.idHabilidade}" />
 
 			<p:separator id="separator" />
 

@@ -5,6 +5,12 @@ public class Projeto {
 	private String nome;
 	private String cliente;
 
+	public String getIdProjeto() {
+		return idProjeto;
+	}
+	public void setIdProjeto(String idProjeto) {
+		this.idProjeto = idProjeto;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -17,11 +23,6 @@ public class Projeto {
 	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
-	public String getIdProjeto() {
-		return idProjeto;
-	}
-	public void setIdProjeto(String idProjeto) {
-		this.idProjeto = idProjeto;
-	}
+
 
 }
